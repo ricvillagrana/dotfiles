@@ -59,17 +59,11 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " THEMES
 Plugin 'kiddos/malokai.vim'
-Plugin 'dracula/vim'
-Plugin 'KKPMW/sacredforest-vim'
 Plugin 'bellma101/vim-snazzy'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
 Plugin 'koirand/tokyo-metro.vim'
-Plugin 'HenryNewcomer/vim-theme-papaya'
-Plugin 'Alvarocz/vim-fresh'
 Plugin 'fatih/molokai'
-Plugin 'tjammer/blayu.vim'
 Plugin 'patstockwell/vim-monokai-tasty'
-Plugin 'sonph/onehalf'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -139,8 +133,7 @@ let g:gruvbox_termcolors=256
 syntax enable
 syn on
 "set termguicolors
-colorscheme dracula
-let g:airline_theme='dracula'
+colorscheme tokyo-metro
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
