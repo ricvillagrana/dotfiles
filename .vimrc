@@ -14,14 +14,13 @@ set smartindent	    " Enable smart-indent
 set smarttab	    " Enable smart-tabs
 set softtabstop=2   " Number of spaces per Tab
 set mouse=a
-set termguicolors
 set clipboard=unnamedplus
 set encoding=utf-8
 set showmatch	    " Highlight matching brace
 
 " Advanced
 set ruler	                " Show row and column ruler information
- 
+
 set undolevels=1000	        " Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 
@@ -69,6 +68,8 @@ Plugin 'HenryNewcomer/vim-theme-papaya'
 Plugin 'Alvarocz/vim-fresh'
 Plugin 'fatih/molokai'
 Plugin 'tjammer/blayu.vim'
+Plugin 'patstockwell/vim-monokai-tasty'
+Plugin 'sonph/onehalf'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -86,6 +87,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'enricobacis/vim-airline-clock'
 Plugin 'lambdalisue/battery.vim'
+Plugin 'gko/vim-coloresque'
 
 " JavaScript
 Plugin 'pangloss/vim-javascript'
@@ -125,10 +127,20 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 
+" 256 colors support for console :) ******************************************
+"set background=dark
+set t_Co=256
+autocmd BufWritePre * :%s/\s\+$//e
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vcr_cassettes\|uploads\|vendor'
+let g:gruvbox_termcolors=256
+
 " Syntax | Theme
-syntax on
-colorscheme blayu
-let g:airline_theme='tokyometro'
+syntax enable
+syn on
+"set termguicolors
+colorscheme dracula
+let g:airline_theme='dracula'
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -261,13 +273,13 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
-" ESLint => Lintern 
+" ESLint => Lintern
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'jsx': ['eslint'],
 \}
 
-" ESLint => Fixer 
+" ESLint => Fixer
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ 'jsx': ['eslint'],
