@@ -1,0 +1,5 @@
+[user]
+	name = Ricardo Villagrana
+	email = rvillagrana@protonmail.com
+[credential]
+	helper = cache --timeout=7200
