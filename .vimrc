@@ -58,9 +58,8 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Put your non-Plugin stuff after this line
 
 " THEMES
-Plugin 'kiddos/malokai.vim'
+Plugin 'caksoylar/vim-mysticaltutor'
 Plugin 'bellma101/vim-snazzy'
-Plugin 'ErichDonGubler/vim-sublime-monokai'
 Plugin 'koirand/tokyo-metro.vim'
 Plugin 'fatih/molokai'
 Plugin 'patstockwell/vim-monokai-tasty'
@@ -69,7 +68,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 " Plugin 'scrooloose/syntastic'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'caksoylar/vim-mysticaltutor'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Yggdroot/indentLine'
 Plugin 'iamcco/markdown-preview.nvim'
@@ -133,7 +131,7 @@ let g:gruvbox_termcolors=256
 syntax enable
 syn on
 "set termguicolors
-colorscheme tokyo-metro
+colorscheme mysticaltutor
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
