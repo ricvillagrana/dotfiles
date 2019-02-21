@@ -1,0 +1,9 @@
+pane	0	0	:zsh	0	:#-	0	:/Users/ricardo/Projects/ruby/animals	0	vim	:vim
+pane	0	0	:zsh	0	:#-	1	:/Users/ricardo/Projects/ruby/animals	0	ruby	:irb    
+pane	0	0	:zsh	0	:#-	2	:/Users/ricardo/Projects/ruby/animals	1	zsh	:
+pane	0	1	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/animals	1	vim	:vim
+pane	0	1	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/animals	0	zsh	:
+pane	0	1	:vim	1	:*	2	:/Users/ricardo/Projects/ruby/animals	0	zsh	:
+window	0	0	0	:#-	573b,272x69,0,0{188x69,0,0,0,83x69,189,0[83x34,189,0,1,83x34,189,35,2]}
+window	0	1	1	:*	238b,272x69,0,0{184x69,0,0,3,87x69,185,0[87x33,185,0,4,87x35,185,34,5]}
+state	0	

@@ -1,0 +1,4 @@
+pane	0	0	:zsh	1	:*	0	:/Users/ricardo/Projects/turisticos-colima	0	vim	:vim
+pane	0	0	:zsh	1	:*	1	:/Users/ricardo/Projects/turisticos-colima	1	zsh	:
+window	0	0	1	:*	99cd,272x69,0,0{208x69,0,0,0,63x69,209,0,1}
+state	0	

@@ -1,0 +1,4 @@
+pane	0	0	:ruby	1	:*	0	:/Users/ricardo/Projects/ruby/easy-record	0	vim	:vim
+pane	0	0	:ruby	1	:*	1	:/Users/ricardo/Projects/ruby/easy-record	1	ruby	:irb    
+window	0	0	1	:*	7315,272x62,0,0{136x62,0,0,0,135x62,137,0,1}
+state	0	

@@ -1,0 +1,32 @@
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	1	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	1	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	1	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	1	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	4	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	4	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	4	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	zsh	:
+pane	4	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	zsh	:
+pane	5	0	:Python	1	:*	0	:/Users/ricardo/Projects/python/do_bot	0	vim	:vim
+pane	5	0	:Python	1	:*	0	:/Users/ricardo/Projects/python/do_bot	0	vim	:vim
+pane	5	0	:Python	1	:*	1	:/Users/ricardo/Projects/python/do_bot	1	Python	:/usr/local/Cellar/python/3.7.2_1/Frameworks/Python.framework/Versions/3.7/Resources/Python.app/Contents/MacOS/Python screenshot.py
+pane	5	0	:Python	1	:*	1	:/Users/ricardo/Projects/python/do_bot	1	Python	:/usr/local/Cellar/python/3.7.2_1/Frameworks/Python.framework/Versions/3.7/Resources/Python.app/Contents/MacOS/Python screenshot.py
+pane	6	0	:zsh	1	:*	0	:/Users/ricardo/Projects/python/do_bot	0	vim	:vim
+pane	6	0	:zsh	1	:*	0	:/Users/ricardo/Projects/python/do_bot	0	vim	:vim
+pane	6	0	:zsh	1	:*	1	:/Users/ricardo/Projects/python/do_bot	1	zsh	:
+pane	6	0	:zsh	1	:*	1	:/Users/ricardo/Projects/python/do_bot	1	zsh	:
+window	0	0	1	:*	7319,272x62,0,0{136x62,0,0,0,135x62,137,0,9}
+window	1	0	1	:*	c0c0,272x62,0,0{136x62,0,0,10,135x62,137,0,11}
+window	4	0	1	:*	e988,272x69,0,0{136x69,0,0,19,135x69,137,0,26}
+window	5	0	1	:*	2983,272x69,0,0{136x69,0,0,21,135x69,137,0,22}
+window	0	0	1	:*	7319,272x62,0,0{136x62,0,0,0,135x62,137,0,9}
+window	6	0	1	:*	c15b,272x69,0,0{172x69,0,0,23,99x69,173,0,25}
+window	1	0	1	:*	c0c0,272x62,0,0{136x62,0,0,10,135x62,137,0,11}
+window	4	0	1	:*	e988,272x69,0,0{136x69,0,0,19,135x69,137,0,26}
+window	5	0	1	:*	2983,272x69,0,0{136x69,0,0,21,135x69,137,0,22}
+window	6	0	1	:*	c15b,272x69,0,0{172x69,0,0,23,99x69,173,0,25}
+state	4	
+state	4	

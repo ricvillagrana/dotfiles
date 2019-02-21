@@ -1,0 +1,4 @@
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/easy-record	1	vim	:vim
+pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/easy-record	0	zsh	:
+window	0	0	1	:*	7fbd,272x62,0,0{166x62,0,0,0,105x62,167,0,1}
+state	0	

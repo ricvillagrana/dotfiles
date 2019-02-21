@@ -198,3 +198,7 @@ export PATH="$PATH:$HOME/.rvm/bin:$HOME/.rvm/gems/ruby-2.5.1/bin:$HOME/.rvm/gems
 export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="/home/ricardo/.rvm/gems/ruby-2.5.3/bin:/home/ricardo/.rvm/gems/ruby-2.5.3@global/bin:/home/ricardo/.rvm/rubies/ruby-2.5.3/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/ricardo/.rvm/bin:/home/ricardo/.rvm/bin:/home/ricardo/.rvm/bin:/home/ricardo/.rvm/gems/ruby-2.5.1/bin:/home/ricardo/.rvm/gems/ruby-2.5.1@global/bin:/home/ricardo/.rvm/rubies/ruby-2.5.1/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/ricardo/.rvm/bin:/home/ricardo/.config/composer/vendor/bin:/path/to/elixir/bin:/home/ricardo/.local/bin:/home/ricardo/.composer/vendor/bin:/opt/android-studio/bin:/home/ricardo/.rvm/bin:/opt/mssql-tools/bin:/home/ricardo/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin:/home/ricardo/.vimpkg/bin:/home/ricardo/.rvm/bin:/home/ricardo/.rvm/bin:/home/ricardo/.vimpkg/bin"
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

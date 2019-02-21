@@ -1,0 +1,3 @@
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/trainee	1	vim	:vim
+window	0	0	1	:*	d55d,272x69,0,0,0
+state	0	

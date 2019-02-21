@@ -1,0 +1,6 @@
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/turisticos-colima	1	vim	:vim
+pane	1	0	:vim	1	:*	0	:/Users/ricardo/Projects/turisticos-colima	1	vim	:vim
+pane	1	0	:vim	1	:*	1	:/Users/ricardo/Projects/turisticos-colima	0	node	:node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js dev
+window	0	0	1	:*	d55d,272x69,0,0,0
+window	1	0	1	:*	a54a,272x69,0,0{195x69,0,0,2,76x69,196,0,3}
+state	1	

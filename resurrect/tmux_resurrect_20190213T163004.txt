@@ -1,0 +1,10 @@
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	1	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	1	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	3	0	:ruby	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	0	vim	:vim
+pane	3	0	:ruby	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	1	ruby	:ruby /Users/ricardo/.rvm/gems/ruby-2.6.0/bin/ri  
+window	0	0	1	:*	7319,272x62,0,0{136x62,0,0,0,135x62,137,0,9}
+window	1	0	1	:*	c0c0,272x62,0,0{136x62,0,0,10,135x62,137,0,11}
+window	3	0	1	:*	98e7,272x78,0,0{136x78,0,0,16,135x78,137,0,17}
+state	3	

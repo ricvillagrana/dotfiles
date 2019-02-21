@@ -1,4 +1,4 @@
-" General
+  " General
 set number	    " Show line numbers
 set linebreak	    " Break lines at word (requires Wrap lines)
 set showbreak=+++   " Wrap-broken line prefix
@@ -14,7 +14,7 @@ set smartindent	    " Enable smart-indent
 set smarttab	    " Enable smart-tabs
 set softtabstop=2   " Number of spaces per Tab
 set mouse=a
-set clipboard=unnamedplus
+set clipboard=unnamed
 set encoding=utf-8
 set showmatch	    " Highlight matching brace
 
@@ -63,6 +63,14 @@ Plugin 'bellma101/vim-snazzy'
 Plugin 'koirand/tokyo-metro.vim'
 Plugin 'fatih/molokai'
 Plugin 'patstockwell/vim-monokai-tasty'
+Plugin 'tjammer/blayu.vim'
+Plugin 'vim-scripts/Fruidle'
+Plugin 'archseer/colibri.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'Badacadabra/vim-archery'
+Plugin 'joshdick/onedark.vim'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+Plugin 'drewtempelmeyer/palenight.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -80,6 +88,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'enricobacis/vim-airline-clock'
 Plugin 'lambdalisue/battery.vim'
 Plugin 'gko/vim-coloresque'
+Plugin 'ngmy/vim-rubocop'
 
 " JavaScript
 Plugin 'pangloss/vim-javascript'
@@ -90,7 +99,7 @@ Plugin 'prettier/vim-prettier'
 Plugin 'maxmellon/vim-jsx-pretty'
 
 " Vue.js
-" Plugin 'posva/vim-vue'
+Plugin 'posva/vim-vue'
 Plugin 'leafOfTree/vim-vue-plugin'
 
 " Ruby and Rails
@@ -131,7 +140,11 @@ let g:gruvbox_termcolors=256
 syntax enable
 syn on
 "set termguicolors
-colorscheme mysticaltutor
+set background=dark
+colorscheme palenight
+
+" Italics for my favorite color scheme
+let g:palenight_terminal_italics=1
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -204,11 +217,11 @@ set statusline=...%{battery#component()}...
 let g:battery#update_statusline = 1 " For statusline.
 
 " Autocompletation
-" let g:ycm_min_num_of_chars_for_completion = 3
-" let g:ycm_min_num_identifier_candidate_chars = 3
-" let g:ycm_enable_diagnostic_highlighting = 0
-" set completeopt-=preview
-" let g:ycm_add_preview_to_completeopt = 0
+ let g:ycm_min_num_of_chars_for_completion = 3
+ let g:ycm_min_num_identifier_candidate_chars = 3
+ let g:ycm_enable_diagnostic_highlighting = 0
+ set completeopt-=preview
+ let g:ycm_add_preview_to_completeopt = 0
 
 let g:NERDTreeIndicatorMapCustom = {
 \ "Modified"  : "✹",

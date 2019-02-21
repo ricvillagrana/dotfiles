@@ -1,0 +1,48 @@
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	1	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	1	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
+pane	1	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	1	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
+pane	4	0	:zsh	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	0	vim	:vim
+pane	4	0	:zsh	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	0	vim	:vim
+pane	4	0	:zsh	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	1	zsh	:
+pane	4	0	:zsh	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	1	zsh	:
+pane	5	0	:vim	1	:*	0	:/Users/ricardo/Projects/python/do_bot	1	vim	:vim
+pane	5	0	:vim	1	:*	0	:/Users/ricardo/Projects/python/do_bot	1	vim	:vim
+pane	6	0	:zsh	1	:*	0	:/Users/ricardo/Projects/python/do_bot	0	vim	:vim
+pane	6	0	:zsh	1	:*	0	:/Users/ricardo/Projects/python/do_bot	0	vim	:vim
+pane	6	0	:zsh	1	:*	1	:/Users/ricardo/Projects/python/do_bot/stable	1	zsh	:
+pane	6	0	:zsh	1	:*	1	:/Users/ricardo/Projects/python/do_bot/stable	1	zsh	:
+pane	7	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/markdown_parser	1	vim	:vim
+pane	7	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/markdown_parser	1	vim	:vim
+pane	7	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/markdown_parser	0	zsh	:
+pane	7	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/markdown_parser	0	zsh	:
+pane	8	0	:vim	1	:*	0	:/Users/ricardo/Projects/turisticos-colima	1	vim	:vim
+pane	8	0	:vim	1	:*	0	:/Users/ricardo/Projects/turisticos-colima	1	vim	:vim
+pane	8	0	:vim	1	:*	1	:/Users/ricardo/Projects/turisticos-colima	0	zsh	:
+pane	8	0	:vim	1	:*	1	:/Users/ricardo/Projects/turisticos-colima	0	zsh	:
+pane	9	0	:zsh	1	:*	0	:/Users/ricardo/Projects/ruby/markdown_parser	0	vim	:vim
+pane	9	0	:zsh	1	:*	0	:/Users/ricardo/Projects/ruby/markdown_parser	0	vim	:vim
+pane	9	0	:zsh	1	:*	1	:/Users/ricardo/Projects/ruby/markdown_parser	1	zsh	:
+pane	9	0	:zsh	1	:*	1	:/Users/ricardo/Projects/ruby/markdown_parser	1	zsh	:
+window	0	0	1	:*	7319,272x62,0,0{136x62,0,0,0,135x62,137,0,9}
+window	1	0	1	:*	c0c0,272x62,0,0{136x62,0,0,10,135x62,137,0,11}
+window	4	0	1	:*	d679,272x69,0,0{177x69,0,0,19,94x69,178,0,26}
+window	5	0	1	:*	eae0,272x69,0,0,21
+window	0	0	1	:*	7319,272x62,0,0{136x62,0,0,0,135x62,137,0,9}
+window	6	0	1	:*	fa9a,272x66,0,0{172x66,0,0,23,99x66,173,0,25}
+window	7	0	1	:*	14c5,272x69,0,0{150x69,0,0,27,121x69,151,0,28}
+window	1	0	1	:*	c0c0,272x62,0,0{136x62,0,0,10,135x62,137,0,11}
+window	8	0	1	:*	77da,272x69,0,0{168x69,0,0,29,103x69,169,0,30}
+window	4	0	1	:*	d679,272x69,0,0{177x69,0,0,19,94x69,178,0,26}
+window	5	0	1	:*	eae0,272x69,0,0,21
+window	9	0	1	:*	2984,272x69,0,0{136x69,0,0,31,135x69,137,0,33}
+window	6	0	1	:*	fa9a,272x66,0,0{172x66,0,0,23,99x66,173,0,25}
+window	7	0	1	:*	14c5,272x69,0,0{150x69,0,0,27,121x69,151,0,28}
+window	8	0	1	:*	77da,272x69,0,0{168x69,0,0,29,103x69,169,0,30}
+window	9	0	1	:*	2984,272x69,0,0{136x69,0,0,31,135x69,137,0,33}
+state	9	
+state	9	

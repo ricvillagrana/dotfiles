@@ -1,0 +1,4 @@
+pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/trainee	1	vim	:vim
+pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/trainee	0	zsh	:
+window	0	0	1	:*	8eed,272x69,0,0{183x69,0,0,0,88x69,184,0,1}
+state	0	

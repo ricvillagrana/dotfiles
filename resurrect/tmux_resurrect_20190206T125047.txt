@@ -1,0 +1,4 @@
+pane	0	0	:zsh	1	:*	0	:/Users/ricardo/Projects/trainee	1	zsh	:
+pane	0	0	:zsh	1	:*	1	:/Users/ricardo/Projects/trainee	0	zsh	:
+window	0	0	1	:*	9299,272x69,0,0{136x69,0,0,0,135x69,137,0,2}
+state	0	
