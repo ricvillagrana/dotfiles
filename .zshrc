@@ -115,6 +115,13 @@ alias tmux-electron='bash ~/.tmux/sessions/electron.sh'
 
 source ~/.rvm/scripts/rvm
 
+#alias tmux="TERM=screen-256color-bce tmux"
+#export TERM=screen-256color
+if [ "$TERM" = "xterm" ]; then
+  export TERM=xterm-256color
+fi
+alias tmux='tmux -2'  # for 256color
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
