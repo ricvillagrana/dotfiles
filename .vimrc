@@ -67,7 +67,6 @@ Plugin 'koirand/tokyo-metro.vim'
 Plugin 'fatih/molokai'
 Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'tjammer/blayu.vim'
-Plugin 'vim-scripts/Fruidle'
 Plugin 'archseer/colibri.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'Badacadabra/vim-archery'
@@ -87,14 +86,28 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'jiangmiao/auto-pairs'
 "Plugin 'alvan/vim-closetag'
-Plugin 'kien/ctrlp.vim'
 "Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'enricobacis/vim-airline-clock'
-Plugin 'lambdalisue/battery.vim'
 Plugin 'gko/vim-coloresque'
-Plugin 'ngmy/vim-rubocop'
+
+" CtrlP
+Plugin 'kien/ctrlp.vim'
+
+" Git
+Plugin 'zivyangll/git-blame.vim'
+Plugin 'airblade/vim-gitgutter'
+
+" Emmet
+Plugin 'mattn/emmet-vim'
+
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
+
+" PHP
+Plugin 'StanAngeloff/php.vim'
+Plugin 'jwalton512/vim-blade'
 
 " Vim snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -117,6 +130,7 @@ Plugin 'posva/vim-vue'
 " Ruby and Rails
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
+Plugin 'ngmy/vim-rubocop'
 
 " Vim Airline
 Plugin 'vim-airline/vim-airline'
@@ -153,9 +167,6 @@ set t_Co=256
 "set background=dark
 "autocmd BufWritePre * :%s/\s\+$//e
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vcr_cassettes\|uploads\|vendor'
-"let g:gruvbox_termcolors=256
-
 " True colors
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -172,7 +183,10 @@ endif
 colorscheme palenight
 
 " Italics for my favorite color scheme
-let g:palenight_terminal_italics=1
+let g:palenight_terminal_italics=1" CTRL-P
+
+" CTRL-P
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vcr_cassettes\|uploads\|vendor'
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -237,6 +251,8 @@ let mapleader = ","
 nmap <leader>n :bnext<Esc>
 nmap <leader>b :bprevious<Esc>
 map <leader> <Plug>(easymotion-prefix)
+map <leader>t :NERDTreeToggle<Enter>
+nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
 
 " Battery.vim
 set statusline=...%{battery#component()}...
@@ -298,6 +314,13 @@ let g:AutoPairs = {
 \ 'def\s\w\n': '\t\nend',
 \ }
 
+"inoremap " "<left>
+"inoremap ' ''<left>
+"inoremap ( ()<left>
+"inoremap [ []<left>
+"inoremap { {}<left>
+"inoremap {<CR> {<CR><Tab><left><CR>}
+
 " vim-closetag
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.vue,*.xml,*.xhtml'
 
@@ -322,3 +345,11 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
+" Emmet
+let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,vue,jsx,erb EmmetInstall
+let g:user_emmet_leader_key='<C-Z>'
+
+" PHP Blade Laravel
+let g:blade_custom_directives = ['datetime', 'javascript']
