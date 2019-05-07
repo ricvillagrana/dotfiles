@@ -2,9 +2,8 @@
 set number	    " Show line numbers
 set linebreak	    " Break lines at word (requires Wrap lines)
 set showbreak=+++   " Wrap-broken line prefix
-"set textwidth=100   " Line wrap (number of cols)
 set smartcase	    " Enable smart-case search
-
+set hlsearch        " Highlight search
 set incsearch	    " Searches for strings incrementally
 set noic            " No insensitive case
 
@@ -19,11 +18,10 @@ set clipboard=unnamed
 set encoding=utf-8
 set showmatch	    " Highlight matching brace
 set swapfile
-set dir=~/.swp/
+set dir=~/.swp/     " Define path to swp files on $HOME
 
 " Advanced
 set ruler	                " Show row and column ruler information
-
 set undolevels=1000	        " Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 
@@ -34,63 +32,47 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " === BEGIN PLUGINS ===
 " Put your non-Plugin stuff after this line
 
-" THEMES
+" === THEMES ===
 Plugin 'caksoylar/vim-mysticaltutor'
 Plugin 'bellma101/vim-snazzy'
 Plugin 'koirand/tokyo-metro.vim'
 Plugin 'fatih/molokai'
-Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'tjammer/blayu.vim'
-Plugin 'archseer/colibri.vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'Badacadabra/vim-archery'
 Plugin 'joshdick/onedark.vim'
-Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'cocopon/iceberg.vim'
 Plugin 'hzchirs/vim-material'
 Plugin 'miconda/lucariox.vim'
+Plugin 'gvee-s/simo-zz-2'
 
+" === PLUGINS ===
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 Plugin 'Raimondi/delimitMate'
-Plugin 'Yggdroot/indentLine'
-"Plugin 'iamcco/markdown-preview.nvim'
-Plugin 'jiangmiao/auto-pairs'
 "Plugin 'alvan/vim-closetag'
-"Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'enricobacis/vim-airline-clock'
 Plugin 'gko/vim-coloresque'
+Plugin 'ntpeters/vim-better-whitespace'
+
+" Utilities
+Plugin 'svermeulen/vim-yoink'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'Yggdroot/indentLine'
+Plugin 'jiangmiao/auto-pairs'
 
 " CtrlP
 Plugin 'kien/ctrlp.vim'
@@ -98,6 +80,7 @@ Plugin 'kien/ctrlp.vim'
 " Git
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " Emmet
 Plugin 'mattn/emmet-vim'
@@ -132,6 +115,9 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
 Plugin 'ngmy/vim-rubocop'
 
+" Coffee Script
+Plugin 'kchmck/vim-coffee-script'
+
 " Vim Airline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -139,51 +125,37 @@ Plugin 'vim-airline/vim-airline-themes'
 " Autocompletation
 Plugin 'Valloric/YouCompleteMe'
 
+" Winteract
+Plugin 'romgrk/winteract.vim'
+
 " GAMES & LEARNING
 Plugin 'johngrib/vim-game-snake' " Run with :VimGameSnake
 Plugin 'johngrib/vim-game-code-break' " Run with :VimGameCodeBreak
 
 " === END PLUGINS ===
-
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
 
-" Syntax | Theme
+" === CONFIGURATION ===
+
+" === Syntax | Theme ===
 syntax enable
 syn on
 set t_Co=256
 
-"set background=dark
-"autocmd BufWritePre * :%s/\s\+$//e
+set background=dark
 
-" True colors
 if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
-"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
- "< https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
 if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme palenight
-
-" Italics for my favorite color scheme
-let g:palenight_terminal_italics=1" CTRL-P
+" colorscheme palenight
+colorscheme molokai
+" colorscheme onehalf
 
 " CTRL-P
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vcr_cassettes\|uploads\|vendor'
@@ -252,7 +224,12 @@ nmap <leader>n :bnext<Esc>
 nmap <leader>b :bprevious<Esc>
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NERDTreeToggle<Enter>
-nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
+nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
+nnoremap <Leader>g :Gblame<Esc>
+nmap [y <plug>(YoinkRotateBack)
+nmap ]y <plug>(YoinkRotateForward)
+nmap <leader>r :InteractiveWindow<CR>
+nmap <leader>c :term ++curwin<CR>
 
 " Battery.vim
 set statusline=...%{battery#component()}...
@@ -314,13 +291,6 @@ let g:AutoPairs = {
 \ 'def\s\w\n': '\t\nend',
 \ }
 
-"inoremap " "<left>
-"inoremap ' ''<left>
-"inoremap ( ()<left>
-"inoremap [ []<left>
-"inoremap { {}<left>
-"inoremap {<CR> {<CR><Tab><left><CR>}
-
 " vim-closetag
 let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.vue,*.xml,*.xhtml'
 
@@ -353,3 +323,4 @@ let g:user_emmet_leader_key='<C-Z>'
 
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
+
