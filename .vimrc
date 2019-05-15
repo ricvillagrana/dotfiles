@@ -153,9 +153,9 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" colorscheme palenight
+"colorscheme palenight
 colorscheme molokai
-" colorscheme onehalf
+"colorscheme onehalf
 
 " CTRL-P
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vcr_cassettes\|uploads\|vendor'
@@ -318,7 +318,7 @@ let g:ale_fix_on_save = 1
 " Emmet
 let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,vue,jsx,erb EmmetInstall
+autocmd FileType html,css,vue,jsx,erb,php EmmetInstall
 let g:user_emmet_leader_key='<C-Z>'
 
 " PHP Blade Laravel
