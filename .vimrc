@@ -22,7 +22,7 @@ set dir=~/.swp/     " Define path to swp files on $HOME
 
 " Advanced
 set ruler	                " Show row and column ruler information
-set undolevels=1000	        " Number of undo levels
+set undolevels=500	        " Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 
 " Configure Vundle
@@ -40,20 +40,13 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " === BEGIN PLUGINS ===
-" Put your non-Plugin stuff after this line
 
 " === THEMES ===
-Plugin 'caksoylar/vim-mysticaltutor'
 Plugin 'bellma101/vim-snazzy'
-Plugin 'koirand/tokyo-metro.vim'
 Plugin 'fatih/molokai'
-Plugin 'tjammer/blayu.vim'
-Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
 Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'hzchirs/vim-material'
-Plugin 'miconda/lucariox.vim'
-Plugin 'gvee-s/simo-zz-2'
+Plugin 'flrnprz/candid.vim'
 
 " === PLUGINS ===
 Plugin 'scrooloose/nerdtree'
@@ -61,16 +54,16 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-Plugin 'Raimondi/delimitMate'
-"Plugin 'alvan/vim-closetag'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'enricobacis/vim-airline-clock'
+" tpope
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-endwise'
+
 Plugin 'gko/vim-coloresque'
 Plugin 'ntpeters/vim-better-whitespace'
 
 " Utilities
-Plugin 'svermeulen/vim-yoink'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
 
@@ -80,7 +73,6 @@ Plugin 'kien/ctrlp.vim'
 " Git
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
 
 " Emmet
 Plugin 'mattn/emmet-vim'
@@ -92,15 +84,8 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'jwalton512/vim-blade'
 
-" Vim snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
 " JavaScript
 Plugin 'pangloss/vim-javascript'
-"Plugin 'vim-syntastic/syntastic'
 Plugin 'prettier/vim-prettier'
 
 " React.js
@@ -108,11 +93,11 @@ Plugin 'maxmellon/vim-jsx-pretty'
 
 " Vue.js
 Plugin 'posva/vim-vue'
-"Plugin 'leafOfTree/vim-vue-plugin'
+
+" Svelte.js
+Plugin 'burner/vim-svelte'
 
 " Ruby and Rails
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise'
 Plugin 'ngmy/vim-rubocop'
 
 " Coffee Script
@@ -122,21 +107,26 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" Autocompletation
+" YCM
 Plugin 'Valloric/YouCompleteMe'
-
-" Winteract
-Plugin 'romgrk/winteract.vim'
-
-" GAMES & LEARNING
-Plugin 'johngrib/vim-game-snake' " Run with :VimGameSnake
-Plugin 'johngrib/vim-game-code-break' " Run with :VimGameCodeBreak
 
 " === END PLUGINS ===
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " === CONFIGURATION ===
+
+let mapleader = ","
+nmap <leader>n :bnext<Esc>
+nmap <leader>b :bprevious<Esc>
+map <leader> <Plug>(easymotion-prefix)
+map <leader>t :NERDTreeToggle<Enter>
+nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
+nnoremap <Leader>g :Gblame<Esc>
+nmap [y <plug>(YoinkRotateBack)
+nmap ]y <plug>(YoinkRotateForward)
+nmap <leader>r :InteractiveWindow<CR>
+nmap <leader>c :term ++curwin<CR>
 
 " === Syntax | Theme ===
 syntax enable
@@ -153,9 +143,12 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-"colorscheme palenight
-colorscheme molokai
-"colorscheme onehalf
+" === THEMES ===
+"colorscheme snazzy
+colorscheme palenight
+"colorscheme molokai
+"colorscheme candid
+"colorscheme onedark
 
 " CTRL-P
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vcr_cassettes\|uploads\|vendor'
@@ -219,28 +212,16 @@ autocmd StdinReadPre * let s:std_in1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap c :bp\|bd #<CR>
 
-let mapleader = ","
-nmap <leader>n :bnext<Esc>
-nmap <leader>b :bprevious<Esc>
-map <leader> <Plug>(easymotion-prefix)
-map <leader>t :NERDTreeToggle<Enter>
-nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
-nnoremap <Leader>g :Gblame<Esc>
-nmap [y <plug>(YoinkRotateBack)
-nmap ]y <plug>(YoinkRotateForward)
-nmap <leader>r :InteractiveWindow<CR>
-nmap <leader>c :term ++curwin<CR>
-
 " Battery.vim
 set statusline=...%{battery#component()}...
 let g:battery#update_statusline = 1 " For statusline.
 
-" Autocompletation
- let g:ycm_min_num_of_chars_for_completion = 3
- let g:ycm_min_num_identifier_candidate_chars = 3
- let g:ycm_enable_diagnostic_highlighting = 1
- set completeopt-=preview
- let g:ycm_add_preview_to_completeopt = 1
+" YCM
+let g:ycm_min_num_of_chars_for_completion = 4
+let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_enable_diagnostic_highlighting = 1
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 1
 
 let g:NERDTreeIndicatorMapCustom = {
 \ "Modified"  : "✹",
@@ -254,26 +235,6 @@ let g:NERDTreeIndicatorMapCustom = {
 \ 'Ignored'   : '☒',
 \ "Unknown"   : "?"
 \ }
-
-" filenames like *.xml, *.html, *.xhtml, ...
-" These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-" filenames like *.xml, *.xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-" filetypes like xml, html, xhtml, ...
-" These are the file types where this plugin is enabled.
-let g:closetag_filetypes = 'html,xhtml,phtml'
-" filetypes like xml, xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-" integer value [0|1]
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-let g:closetag_emptyTags_caseSensitive = 1
-" Shortcut for closing tags, default is '>'
-let g:closetag_shortcut = '>'
-" Add > at current position without closing the current tag, default is ''
-let g:closetag_close_shortcut = '<leader><cr>'
 
 "Auto pair
 let g:AutoPairs = {
@@ -290,9 +251,6 @@ let g:AutoPairs = {
 \ '[ ': ' ]',
 \ 'def\s\w\n': '\t\nend',
 \ }
-
-" vim-closetag
-let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.vue,*.xml,*.xhtml'
 
 " CTRL P
 let g:ctrlp_custom_ignore = {
