@@ -6,6 +6,7 @@ set smartcase	    " Enable smart-case search
 set hlsearch        " Highlight search
 set incsearch	    " Searches for strings incrementally
 set noic            " No insensitive case
+set encoding=UTF-8
 
 set autoindent	    " Auto-indent new lines
 set expandtab	    " Use spaces instead of tabs
@@ -103,12 +104,19 @@ Plugin 'ngmy/vim-rubocop'
 " Coffee Script
 Plugin 'kchmck/vim-coffee-script'
 
+" Mustache toml and {Handlebars}
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'cespare/vim-toml'
+
 " Vim Airline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " YCM
 Plugin 'Valloric/YouCompleteMe'
+
+" Icons
+Plugin 'ryanoasis/vim-devicons'
 
 " === END PLUGINS ===
 call vundle#end()            " required
