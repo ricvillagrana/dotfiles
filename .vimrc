@@ -68,8 +68,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
 
-" CtrlP
-Plugin 'kien/ctrlp.vim'
+" Fuzzy finder
+"Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf'
 
 " Git
 Plugin 'zivyangll/git-blame.vim'
@@ -133,8 +134,8 @@ nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Gblame<Esc>
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
-nmap <leader>r :InteractiveWindow<CR>
 nmap <leader>c :term ++curwin<CR>
+nmap <C-p> :FZF<CR>
 
 " === Syntax | Theme ===
 syntax enable
@@ -153,13 +154,10 @@ endif
 
 " === THEMES ===
 "colorscheme snazzy
-colorscheme palenight
+"colorscheme palenight
 "colorscheme molokai
 "colorscheme candid
-"colorscheme onedark
-
-" CTRL-P
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vcr_cassettes\|uploads\|vendor'
+colorscheme onedark
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files

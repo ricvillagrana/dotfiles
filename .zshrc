@@ -99,6 +99,8 @@ alias rsql='sqlitebrowser db/*.sqlite3'
 alias c='clear'
 alias books='~/Documents/books'
 
+alias rspecc='clear && rspec'
+
 # vim aliases
 alias erc='vim ~/.zshrc'
 alias src='source ~/.zshrc'
@@ -111,6 +113,8 @@ alias tmux-rails='bash ~/.tmux/sessions/rails.sh'
 alias tmux-vue='bash ~/.tmux/sessions/vue.sh'
 alias tmux-electron='bash ~/.tmux/sessions/electron.sh'
 
+alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
+
 # User configuration
 
 source ~/.rvm/scripts/rvm
@@ -121,6 +125,8 @@ if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
 fi
 alias tmux='tmux -2'  # for 256color
+
+alias ffind='find * -type f | fzf > selected'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -152,7 +158,8 @@ alias tmux='tmux -2'  # for 256color
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 
-export PATH="$PATH:$HOME/.rvm/gems/ruby-2.5.1/bin:$HOME/.rvm/gems/ruby-2.5.1@global/bin:$HOME/.rvm/rubies/ruby-2.5.1/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:$HOME/.rvm/bin:$HOME/.config/composer/vendor/bin:/path/to/elixir/bin:$HOME/.local/bin:$HOME/.composer/vendor/bin:/opt/android-studio/bin:$HOME/.rvm/bin:/opt/mssql-tools/bin:$HOME/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin:$HOME/.vimpkg/bin"
+export PATH="$PATH:$HOME/.mozilla/geckodriver"
+export PATH="$PATH:$HOME/.rvm/gems/ruby-2.5.1/bin:$HOME/.rvm/gems/ruby-2.5.1@global/bin:$HOME/.rvm/rubies/ruby-2.5.1/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:$HOME/.rvm/bin:$HOME/.config/composer/vendor/bin:/path/to/elixir/bin:$HOME/.local/bin:$HOME/.composer/vendor/bin:/opt/android-studio/bin:$HOME/.rvm/bin:/opt/mssql-tools/bin:$HOME/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin:$HOME/.vimpkg/bin:$HOME/.cargo/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -160,4 +167,15 @@ export PATH="$PATH:/usr/local/Cellar/mongodb/4.0.3_1/bin"
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export ANDROID_HOME=/usr/local/share/android-sdk
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+#. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
 
+###-tns-completion-start-###
+if [ -f /Users/ricardo/.tnsrc ]; then 
+    source /Users/ricardo/.tnsrc 
+fi
+###-tns-completion-end-###
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
