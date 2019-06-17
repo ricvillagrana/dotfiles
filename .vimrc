@@ -48,75 +48,44 @@ Plugin 'fatih/molokai'
 Plugin 'joshdick/onedark.vim'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'flrnprz/candid.vim'
+Plugin 'flrnprz/taffy.vim'
 
 " === PLUGINS ===
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-" tpope
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-repeat'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
 
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'gko/vim-coloresque'
 Plugin 'ntpeters/vim-better-whitespace'
-
-" Utilities
 Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
-
-" Fuzzy finder
-"Plugin 'kien/ctrlp.vim'
 Plugin 'junegunn/fzf'
-
-" Git
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'airblade/vim-gitgutter'
-
-" Emmet
 Plugin 'mattn/emmet-vim'
-
-" Elixir
 Plugin 'elixir-editors/vim-elixir'
-
-" PHP
 Plugin 'StanAngeloff/php.vim'
 Plugin 'jwalton512/vim-blade'
-
-" JavaScript
 Plugin 'pangloss/vim-javascript'
 Plugin 'prettier/vim-prettier'
-
-" React.js
 Plugin 'maxmellon/vim-jsx-pretty'
-
-" Vue.js
 Plugin 'posva/vim-vue'
-
-" Svelte.js
 Plugin 'burner/vim-svelte'
-
-" Ruby and Rails
 Plugin 'ngmy/vim-rubocop'
-
-" Coffee Script
 Plugin 'kchmck/vim-coffee-script'
-
-" Mustache toml and {Handlebars}
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'cespare/vim-toml'
-
-" Vim Airline
+Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" YCM
-Plugin 'Valloric/YouCompleteMe'
-
-" Icons
 Plugin 'ryanoasis/vim-devicons'
 
 " === END PLUGINS ===
@@ -126,8 +95,6 @@ filetype plugin indent on    " required
 " === CONFIGURATION ===
 
 let mapleader = ","
-nmap <leader>n :bnext<Esc>
-nmap <leader>b :bprevious<Esc>
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NERDTreeToggle<Enter>
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
@@ -136,6 +103,13 @@ nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 nmap <leader>c :term ++curwin<CR>
 nmap <C-p> :FZF<CR>
+nmap <C-h> <C-W>h
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-l> <C-W>l
+nmap <C-u> :bprevious<Esc>
+nmap <C-i> :bnext<Esc>
+
 
 " === Syntax | Theme ===
 syntax enable
@@ -157,7 +131,8 @@ endif
 "colorscheme palenight
 "colorscheme molokai
 "colorscheme candid
-colorscheme onedark
+"colorscheme onedark
+colorscheme taffy
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -221,13 +196,6 @@ nnoremap c :bp\|bd #<CR>
 " Battery.vim
 set statusline=...%{battery#component()}...
 let g:battery#update_statusline = 1 " For statusline.
-
-" YCM
-let g:ycm_min_num_of_chars_for_completion = 4
-let g:ycm_min_num_identifier_candidate_chars = 4
-let g:ycm_enable_diagnostic_highlighting = 1
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt = 1
 
 let g:NERDTreeIndicatorMapCustom = {
 \ "Modified"  : "✹",
