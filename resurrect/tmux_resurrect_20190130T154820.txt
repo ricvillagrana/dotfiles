@@ -1,5 +1,0 @@
-pane	0	0	:zsh	1	:*	0	:/Users/ricardo/Projects/trainee	0	vim	:vim
-pane	0	0	:zsh	1	:*	1	:/Users/ricardo/Projects/trainee	0	ruby	:/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/bin/ruby -W0 /usr/local/Homebrew/Library/Homebrew/brew.rb cask install dolphin
-pane	0	0	:zsh	1	:*	2	:/Users/ricardo/Projects/trainee	1	zsh	:
-window	0	0	1	:*	44e9,272x69,0,0{169x69,0,0,0,102x69,170,0[102x34,170,0,1,102x34,170,35,2]}
-state	0	

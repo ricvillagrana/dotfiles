@@ -1,4 +1,0 @@
-pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/turisticos-colima	1	vim	:vim
-pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/turisticos-colima	0	zsh	:
-window	0	0	1	:*	a0cd,272x69,0,0{185x69,0,0,0,86x69,186,0,1}
-state	0	

@@ -1,5 +1,0 @@
-pane	0	0	:nvim	1	:*	0	:/Users/ricardo/Projects/turisticos-colima	0	vim	:vim
-pane	0	0	:nvim	1	:*	1	:/Users/ricardo/Projects/turisticos-colima	0	node	:node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js dev
-pane	0	0	:nvim	1	:*	2	:/Users/ricardo/Projects/turisticos-colima	1	nvim	:nvim .
-window	0	0	1	:*	0e26,272x69,0,0{192x69,0,0,0,79x69,193,0[79x34,193,0,1,79x34,193,35,2]}
-state	0	

@@ -1,4 +1,0 @@
-pane	0	0	:git	1	:*	0	:/Users/ricardo/Projects/trainee	0	vim	:vim
-pane	0	0	:git	1	:*	1	:/Users/ricardo/Projects/trainee	1	git	:git push origin HEAD
-window	0	0	1	:*	45fe,272x62,0,0{172x62,0,0,0,99x62,173,0,1}
-state	0	

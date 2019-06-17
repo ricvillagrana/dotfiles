@@ -1,7 +1,0 @@
-pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/easy-record	1	vim	:vim
-pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/easy-record	0	zsh	:
-pane	1	0	:ruby	1	:*	0	:/Users/ricardo/Projects/ruby/csv	0	vim	:vim
-pane	1	0	:ruby	1	:*	1	:/Users/ricardo/Projects/ruby/csv	1	ruby	:irb    
-window	0	0	1	:*	f510,272x69,0,0{142x69,0,0,0,129x69,143,0,1}
-window	1	0	1	:*	f8b3,272x69,0,0{171x69,0,0,2,100x69,172,0,3}
-state	0	

@@ -1,4 +1,0 @@
-pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
-pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	ruby	:irb    
-window	0	0	1	:*	9c55,272x69,0,0{175x69,0,0,0,96x69,176,0,1}
-state	0	

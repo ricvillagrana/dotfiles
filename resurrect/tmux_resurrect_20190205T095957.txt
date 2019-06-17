@@ -1,4 +1,0 @@
-pane	0	0	:ruby	1	:*	0	:/Users/ricardo/Projects/trainee	1	ruby	:ruby /Users/ricardo/.rvm/rubies/ruby-2.6.0/bin/gem install rubocop reek
-pane	0	0	:ruby	1	:*	1	:/Users/ricardo/Projects/trainee	0	zsh	:
-window	0	0	1	:*	45fe,272x62,0,0{172x62,0,0,0,99x62,173,0,1}
-state	0	

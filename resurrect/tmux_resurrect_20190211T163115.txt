@@ -1,4 +1,0 @@
-pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim
-pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	0	zsh	:
-window	0	0	1	:*	129a,272x69,0,0{136x69,0,0,0,135x69,137,0,3}
-state	0	

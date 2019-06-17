@@ -1,4 +1,0 @@
-pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/trainee	1	vim	:vim
-pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/trainee	0	ruby	:irb    
-window	0	0	1	:*	8a75,272x69,0,0{173x69,0,0,0,98x69,174,0,1}
-state	0	

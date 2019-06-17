@@ -1,4 +1,0 @@
-pane	0	0	:git	1	:*	0	:/Users/ricardo/Projects/ruby/easy-record	0	vim	:vim
-pane	0	0	:git	1	:*	1	:/Users/ricardo/Projects/ruby/easy-record	1	git	:git fetch origin -p
-window	0	0	1	:*	f478,272x69,0,0{161x69,0,0,0,110x69,162,0,1}
-state	0	

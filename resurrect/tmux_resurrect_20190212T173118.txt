@@ -1,4 +1,0 @@
-pane	0	0	:vim	1	:*	0	:/Users/ricardo/Projects/ruby/csv_2	0	vim	:vim
-pane	0	0	:vim	1	:*	1	:/Users/ricardo/Projects/ruby/csv_2	1	vim	:vim pipe.rb
-window	0	0	1	:*	9f43,272x69,0,0{147x69,0,0,0,124x69,148,0,6}
-state	0	
