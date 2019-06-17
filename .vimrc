@@ -126,6 +126,7 @@ let g:rubycomplete_rails = 1
 autocmd StdinReadPre * let s:std_in1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap c :bp\|bd #<CR>
+let g:airline#extensions#tabline#enabled = 1
 
 " Battery.vim
 set statusline=...%{battery#component()}...
@@ -146,3 +147,4 @@ let g:user_emmet_leader_key='<C-Z>'
 let g:blade_custom_directives = ['datetime', 'javascript']
 
 set fillchars=vert:\│,eob:\ 
+
