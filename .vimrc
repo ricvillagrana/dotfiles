@@ -28,7 +28,7 @@ call vundle#begin()
   " === TOUCHABLE ===
 
   " === THEMES ===
-  Plugin 'bellma101/vim-snazzy'
+  Plugin 'connorholyday/vim-snazzy'
   Plugin 'drewtempelmeyer/palenight.vim'
   Plugin 'fatih/molokai'
   Plugin 'sonph/onehalf', {'rtp': 'vim/'}
@@ -100,7 +100,7 @@ nmap <C-i> :bnext<Esc>
 " === Syntax | Theme ===
 syntax enable
 syn on
-set cursorline
+"set cursorline
 set t_Co=256
 set background=dark
 if (has("nvim"))
@@ -111,8 +111,8 @@ if (has("termguicolors"))
 endif
 
 " === THEMES ===
-colorscheme default
-"colorscheme snazzy
+"colorscheme default
+colorscheme snazzy
 "colorscheme palenight
 "colorscheme molokai
 "colorscheme onehalflight
@@ -121,16 +121,13 @@ colorscheme default
 "colorscheme candid
 "colorscheme onedark
 "colorscheme shades_of_purple
-colorscheme taffy
+"colorscheme taffy
 "colorscheme rdark
 "colorscheme rootwater
 "colorscheme vertLaiton
 "colorscheme vim-material
 "colorscheme vj
 
-"let g:shades_of_purple_airline = 1
-"let g:airline_theme='shades_of_purple'
-let g:airline_theme='onehalfdark'
 set statusline+=%{gutentags#statusline()}
 call neomake#configure#automake('nrwi', 500)
 
