@@ -10,8 +10,7 @@ set autoindent	    " Auto-indent new lines
 set expandtab	    " Use spaces instead of tabs
 set shiftwidth=2    " Number of auto-indent spaces
 set smartindent	    " Enable smart-indent
-set smarttab	    " Enable smart-tabs
-set softtabstop=2   " Number of spaces per Tab
+set smarttab	    " Enable smart-tabs set softtabstop=2   " Number of spaces per Tab
 set mouse=a
 set clipboard=unnamed
 set encoding=utf-8
@@ -32,9 +31,12 @@ call vundle#begin()
   Plugin 'bellma101/vim-snazzy'
   Plugin 'drewtempelmeyer/palenight.vim'
   Plugin 'fatih/molokai'
+  Plugin 'sonph/onehalf', {'rtp': 'vim/'}
   Plugin 'flrnprz/candid.vim'
   Plugin 'flrnprz/taffy.vim'
   Plugin 'joshdick/onedark.vim'
+  Plugin 'Rigellute/shades-of-purple.vim'
+  Plugin 'flazz/vim-colorschemes'
 
   " === PLUGINS ===
   Plugin 'StanAngeloff/php.vim'
@@ -50,9 +52,11 @@ call vundle#begin()
   Plugin 'junegunn/fzf'
   Plugin 'jwalton512/vim-blade'
   Plugin 'kchmck/vim-coffee-script'
+  Plugin 'ludovicchabant/vim-gutentags'
   Plugin 'mattn/emmet-vim'
   Plugin 'maxmellon/vim-jsx-pretty'
   Plugin 'mustache/vim-mustache-handlebars'
+  Plugin 'neomake/neomake'
   Plugin 'ngmy/vim-rubocop'
   Plugin 'ntpeters/vim-better-whitespace'
   Plugin 'pangloss/vim-javascript'
@@ -62,6 +66,7 @@ call vundle#begin()
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/syntastic'
+  Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-rails'
@@ -95,6 +100,7 @@ nmap <C-i> :bnext<Esc>
 " === Syntax | Theme ===
 syntax enable
 syn on
+set cursorline
 set t_Co=256
 set background=dark
 if (has("nvim"))
@@ -105,12 +111,24 @@ if (has("termguicolors"))
 endif
 
 " === THEMES ===
+"colorscheme default
 "colorscheme snazzy
 "colorscheme palenight
 "colorscheme molokai
+"colorscheme onehalflight
+colorscheme onehalfdark
+"colorscheme onedark
 "colorscheme candid
 "colorscheme onedark
-colorscheme taffy
+"/
+"colorscheme shades_of_purple
+"colorscheme taffy
+
+"let g:shades_of_purple_airline = 1
+"let g:airline_theme='shades_of_purple'
+let g:airline_theme='onehalfdark'
+set statusline+=%{gutentags#statusline()}
+call neomake#configure#automake('nrwi', 500)
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -126,11 +144,7 @@ let g:rubycomplete_rails = 1
 autocmd StdinReadPre * let s:std_in1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap c :bp\|bd #<CR>
-let g:airline#extensions#tabline#enabled = 1
-
-" Battery.vim
-set statusline=...%{battery#component()}...
-let g:battery#update_statusline = 1 " For statusline.
+let g:airline#extensions#tabline#enabled = 1 " This add tabs (buffers) on the top
 
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
@@ -147,4 +161,3 @@ let g:user_emmet_leader_key='<C-Z>'
 let g:blade_custom_directives = ['datetime', 'javascript']
 
 set fillchars=vert:\│,eob:\ 
-
