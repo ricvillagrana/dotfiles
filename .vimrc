@@ -111,18 +111,22 @@ if (has("termguicolors"))
 endif
 
 " === THEMES ===
-"colorscheme default
+colorscheme default
 "colorscheme snazzy
 "colorscheme palenight
 "colorscheme molokai
 "colorscheme onehalflight
-colorscheme onehalfdark
+"colorscheme onehalfdark
 "colorscheme onedark
 "colorscheme candid
 "colorscheme onedark
-"/
 "colorscheme shades_of_purple
-"colorscheme taffy
+colorscheme taffy
+"colorscheme rdark
+"colorscheme rootwater
+"colorscheme vertLaiton
+"colorscheme vim-material
+"colorscheme vj
 
 "let g:shades_of_purple_airline = 1
 "let g:airline_theme='shades_of_purple'
