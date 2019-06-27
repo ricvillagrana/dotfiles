@@ -100,7 +100,7 @@ nmap <C-i> :bnext<Esc>
 " === Syntax | Theme ===
 syntax enable
 syn on
-"set cursorline
+set cursorline
 set t_Co=256
 set background=dark
 if (has("nvim"))
@@ -122,6 +122,7 @@ colorscheme snazzy
 "colorscheme onedark
 "colorscheme shades_of_purple
 "colorscheme taffy
+"colorscheme antares
 "colorscheme rdark
 "colorscheme rootwater
 "colorscheme vertLaiton
