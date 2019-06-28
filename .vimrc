@@ -39,9 +39,6 @@ call vundle#begin()
   Plugin 'flazz/vim-colorschemes'
 
   " === PLUGINS ===
-  Plugin 'StanAngeloff/php.vim'
-  Plugin 'Xuyuanp/nerdtree-git-plugin'
-  Plugin 'Yggdroot/indentLine'
   Plugin 'airblade/vim-gitgutter'
   Plugin 'burner/vim-svelte'
   Plugin 'cespare/vim-toml'
@@ -62,10 +59,12 @@ call vundle#begin()
   Plugin 'pangloss/vim-javascript'
   Plugin 'posva/vim-vue'
   Plugin 'prettier/vim-prettier'
+  Plugin 'rust-lang/rust.vim'
   Plugin 'ryanoasis/vim-devicons'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/syntastic'
+  Plugin 'StanAngeloff/php.vim'
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
@@ -75,6 +74,8 @@ call vundle#begin()
   Plugin 'tpope/vim-surround'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'Xuyuanp/nerdtree-git-plugin'
+  Plugin 'Yggdroot/indentLine'
   Plugin 'zivyangll/git-blame.vim'
 
 call vundle#end()            " required
