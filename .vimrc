@@ -16,7 +16,7 @@ set encoding=utf-8
 set showmatch	    " Highlight matching brace
 set swapfile
 set dir=~/.swp/     " Define path to swp files on $HOME
-set nocompatible    " be iMproved, required
+set nocompatible    " be ijproved, required
 filetype off        " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -112,7 +112,7 @@ endif
 
 " === THEMES ===
 "colorscheme default
-"colorscheme snazzy
+colorscheme snazzy
 "colorscheme palenight
 "colorscheme molokai
 "colorscheme onehalflight
@@ -126,7 +126,7 @@ endif
 "colorscheme rdark
 "colorscheme rootwater
 "colorscheme vertLaiton
-colorscheme vim-material
+"colorscheme vim-material
 "colorscheme vj
 
 set statusline+=%{gutentags#statusline()}
