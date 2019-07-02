@@ -11,7 +11,6 @@ set expandtab	    " Use spaces instead of tabs
 set shiftwidth=2    " Number of auto-indent spaces
 set smartindent	    " Enable smart-indent
 set smarttab	    " Enable smart-tabs set softtabstop=2   " Number of spaces per Tab
-set mouse=a
 set clipboard=unnamed
 set encoding=utf-8
 set showmatch	    " Highlight matching brace
@@ -113,7 +112,7 @@ endif
 
 " === THEMES ===
 "colorscheme default
-colorscheme snazzy
+"colorscheme snazzy
 "colorscheme palenight
 "colorscheme molokai
 "colorscheme onehalflight
@@ -127,7 +126,7 @@ colorscheme snazzy
 "colorscheme rdark
 "colorscheme rootwater
 "colorscheme vertLaiton
-"colorscheme vim-material
+colorscheme vim-material
 "colorscheme vj
 
 set statusline+=%{gutentags#statusline()}
