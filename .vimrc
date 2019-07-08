@@ -85,6 +85,8 @@ map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NERDTreeToggle<Enter>
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Gblame<Esc>
+nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+nmap <silent> <leader>bp <ESC>/binding.pry<CR>
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 nmap <leader>c :term ++curwin<CR>
@@ -96,6 +98,9 @@ nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
 nmap <C-u> :bprevious<Esc>
 nmap <C-i> :bnext<Esc>
+
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " === Syntax | Theme ===
 syntax enable
