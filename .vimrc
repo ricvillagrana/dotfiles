@@ -16,6 +16,8 @@ set encoding=utf-8
 set showmatch	    " Highlight matching brace
 set swapfile
 set dir=~/.swp/     " Define path to swp files on $HOME
+set foldmethod=indent " automatically fold by indent level
+set nofoldenable      " ... but have folds open by default<Paste>
 set nocompatible    " be ijproved, required
 filetype off        " required
 
@@ -76,7 +78,6 @@ call vundle#begin()
   Plugin 'Xuyuanp/nerdtree-git-plugin'
   Plugin 'Yggdroot/indentLine'
   Plugin 'zivyangll/git-blame.vim'
-
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -152,6 +153,7 @@ autocmd StdinReadPre * let s:std_in1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap c :bp\|bd #<CR>
 let g:airline#extensions#tabline#enabled = 1 " This add tabs (buffers) on the top
+let g:airline_theme = "onehalfdark"
 
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
