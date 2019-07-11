@@ -29,6 +29,7 @@ call vundle#begin()
   " === TOUCHABLE ===
 
   " === THEMES ===
+  Plugin 'arcticicestudio/nord-vim'
   Plugin 'connorholyday/vim-snazzy'
   Plugin 'drewtempelmeyer/palenight.vim'
   Plugin 'fatih/molokai'
@@ -36,8 +37,6 @@ call vundle#begin()
   Plugin 'flrnprz/candid.vim'
   Plugin 'flrnprz/taffy.vim'
   Plugin 'joshdick/onedark.vim'
-  Plugin 'Rigellute/shades-of-purple.vim'
-  Plugin 'flazz/vim-colorschemes'
 
   " === PLUGINS ===
   Plugin 'airblade/vim-gitgutter'
@@ -74,7 +73,6 @@ call vundle#begin()
   Plugin 'tpope/vim-sensible'
   Plugin 'tpope/vim-surround'
   Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'Xuyuanp/nerdtree-git-plugin'
   Plugin 'Yggdroot/indentLine'
   Plugin 'zivyangll/git-blame.vim'
@@ -107,33 +105,36 @@ let g:NERDDefaultAlign = 'left'
 syntax enable
 syn on
 set cursorline
-set t_Co=256
-set background=dark
-if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-  set termguicolors
-endif
+" set t_Co=256
+" set background=dark
+" if (has("nvim"))
+"   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" endif
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
 
 " === THEMES ===
-"colorscheme default
-colorscheme snazzy
-"colorscheme palenight
-"colorscheme molokai
-"colorscheme onehalflight
-"colorscheme onehalfdark
-"colorscheme onedark
-"colorscheme candid
-"colorscheme onedark
-"colorscheme shades_of_purple
-"colorscheme taffy
-"colorscheme antares
-"colorscheme rdark
-"colorscheme rootwater
-"colorscheme vertLaiton
-"colorscheme vim-material
-"colorscheme vj
+colorscheme nord
+" colorscheme default
+" colorscheme snazzy
+" colorscheme palenight
+" colorscheme molokai
+" colorscheme onehalflight
+" colorscheme onehalfdark
+" colorscheme onedark
+" colorscheme candid
+" colorscheme taffy
+
+" Other theme configuration
+let g:nord_cursor_line_number_background = 1
+let g:nord_uniform_status_lines = 1
+let g:nord_bold_vertical_split_line = 1
+let g:nord_uniform_diff_background = 1
+let g:nord_bold = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
 
 set statusline+=%{gutentags#statusline()}
 call neomake#configure#automake('nrwi', 500)
@@ -153,7 +154,6 @@ autocmd StdinReadPre * let s:std_in1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap c :bp\|bd #<CR>
 let g:airline#extensions#tabline#enabled = 1 " This add tabs (buffers) on the top
-let g:airline_theme = "onehalfdark"
 
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }

@@ -2,3 +2,6 @@
 cp ./*rc ..
 brew install fzf
 
+vim +PluginInstall +qa
+# Remember to prefix + I on TMUX
+
