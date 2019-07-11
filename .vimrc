@@ -26,7 +26,6 @@ call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'git://git.wincent.com/command-t.git'
   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-  " === TOUCHABLE ===
 
   " === THEMES ===
   Plugin 'arcticicestudio/nord-vim'
@@ -105,28 +104,9 @@ let g:NERDDefaultAlign = 'left'
 syntax enable
 syn on
 set cursorline
-" set t_Co=256
-" set background=dark
-" if (has("nvim"))
-"   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" endif
-" if (has("termguicolors"))
-"   set termguicolors
-" endif
 
 " === THEMES ===
 colorscheme nord
-" colorscheme default
-" colorscheme snazzy
-" colorscheme palenight
-" colorscheme molokai
-" colorscheme onehalflight
-" colorscheme onehalfdark
-" colorscheme onedark
-" colorscheme candid
-" colorscheme taffy
-
-" Other theme configuration
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_status_lines = 1
 let g:nord_bold_vertical_split_line = 1
@@ -138,35 +118,28 @@ let g:nord_underline = 1
 
 set statusline+=%{gutentags#statusline()}
 call neomake#configure#automake('nrwi', 500)
-
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
-
 " Rails config
 set omnifunc=rubycomplete#Complete
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global=1
 let g:rubycomplete_rails = 1
-
 " NERDTree stuff
 autocmd StdinReadPre * let s:std_in1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap c :bp\|bd #<CR>
 let g:airline#extensions#tabline#enabled = 1 " This add tabs (buffers) on the top
-
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
 let g:ale_fixers = { 'javascript': ['eslint'], 'jsx': ['eslint'], 'js': ['eslint'], 'scss': ['prettier'] }
 let g:ale_fix_on_save = 1
-
 " Emmet
 let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,vue,jsx,erb,php EmmetInstall
 let g:user_emmet_leader_key='<C-Z>'
-
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
-
 set fillchars=vert:\│,eob:\ 
