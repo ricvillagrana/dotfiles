@@ -8,8 +8,7 @@ set noic            " No insensitive case
 set encoding=UTF-8
 set autoindent	    " Auto-indent new lines
 set expandtab	    " Use spaces instead of tabs
-set shiftwidth=2    " Number of auto-indent spaces
-set smartindent	    " Enable smart-indent
+set shiftwidth=2    " Number of auto-indent spaces set smartindent	    " Enable smart-indent
 set smarttab	    " Enable smart-tabs set softtabstop=2   " Number of spaces per Tab
 set clipboard=unnamed
 set encoding=utf-8
@@ -36,6 +35,7 @@ call vundle#begin()
   Plugin 'flrnprz/candid.vim'
   Plugin 'flrnprz/taffy.vim'
   Plugin 'joshdick/onedark.vim'
+  Plugin 'dracula/vim'
 
   " === PLUGINS ===
   Plugin 'airblade/vim-gitgutter'
@@ -116,6 +116,15 @@ let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
 
+" Reset colors
+highlight LineNr ctermfg=239
+hi airline_tabfill ctermbg=NONE guibg=NONE
+hi Comment ctermfg=darkred
+hi VertSplit ctermbg=NONE ctermfg=238
+" hi StatusLine ctermbg=None guibg=NONE
+" hi CursorLine ctermbg=None guibg=NONE
+hi Visual ctermbg=238 gui=none
+
 set statusline+=%{gutentags#statusline()}
 call neomake#configure#automake('nrwi', 500)
 " React config
@@ -136,9 +145,7 @@ let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
 let g:ale_fixers = { 'javascript': ['eslint'], 'jsx': ['eslint'], 'js': ['eslint'], 'scss': ['prettier'] }
 let g:ale_fix_on_save = 1
 " Emmet
-let g:user_emmet_mode='inv'  "enable all functions, which is equal to
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,vue,jsx,erb,php EmmetInstall
+let g:user_emmet_install_global = 1
 let g:user_emmet_leader_key='<C-Z>'
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
