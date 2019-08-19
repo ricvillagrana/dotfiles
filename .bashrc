@@ -163,8 +163,6 @@ SEP="·"
  PS1="$PS1{ \$(__git_ps1 \"\e[1m%s\e[0m\") }"
  PS1="$PS1\n\e[1m╰\e[0m "
 
-export PATH=$PATH:~/.config/composer/vendor/bin:/path/to/elixir/bin:~/.local/bin:~/.composer/vendor/bin:/opt/android-studio/bin:$HOME/.rvm/bin:/opt/mssql-tools/bin:/home/ricardo/.local/lib/python2.7/site-packages/pip
-
 #␥⑊
 #↓↳
 #⋰⋯⋱⋮
@@ -192,10 +190,8 @@ export PATH="$PATH:/opt/mssql-tools/bin"
 export PATH="/usr/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/ricardo/.rvm/bin:/home/ricardo/.config/composer/vendor/bin:/path/to/elixir/bin:/home/ricardo/.local/bin:/home/ricardo/.composer/vendor/bin:/opt/android-studio/bin:/home/ricardo/.rvm/bin:/opt/mssql-tools/bin:/home/ricardo/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin:/home/ricardo/.vimpkg/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin:$HOME/.rvm/gems/ruby-2.5.1/bin:$HOME/.rvm/gems/ruby-2.5.1@global/bin:/$HOME/.rvm/rubies/ruby-2.5.1/bin:"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="/home/ricardo/.rvm/gems/ruby-2.5.3/bin:/home/ricardo/.rvm/gems/ruby-2.5.3@global/bin:/home/ricardo/.rvm/rubies/ruby-2.5.3/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/ricardo/.rvm/bin:/home/ricardo/.rvm/bin:/home/ricardo/.rvm/bin:/home/ricardo/.rvm/gems/ruby-2.5.1/bin:/home/ricardo/.rvm/gems/ruby-2.5.1@global/bin:/home/ricardo/.rvm/rubies/ruby-2.5.1/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/ricardo/.rvm/bin:/home/ricardo/.config/composer/vendor/bin:/path/to/elixir/bin:/home/ricardo/.local/bin:/home/ricardo/.composer/vendor/bin:/opt/android-studio/bin:/home/ricardo/.rvm/bin:/opt/mssql-tools/bin:/home/ricardo/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin:/home/ricardo/.vimpkg/bin:/home/ricardo/.rvm/bin:/home/ricardo/.rvm/bin:/home/ricardo/.vimpkg/bin"
 
@@ -210,3 +206,6 @@ fi
 ###-tns-completion-end-###
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

@@ -1,6 +1,6 @@
 set number	    " Show line numbers
-set linebreak	    " Break lines at word (requires Wrap lines)
-set showbreak=+++   " Wrap-broken line prefix
+" set linebreak	    " Break lines at word (requires Wrap lines)
+" set showbreak=+++   " Wrap-broken line prefix
 set smartcase	    " Enable smart-case search
 set hlsearch        " Highlight search
 set incsearch	    " Searches for strings incrementally
@@ -8,8 +8,8 @@ set noic            " No insensitive case
 set encoding=UTF-8
 set autoindent	    " Auto-indent new lines
 set expandtab	    " Use spaces instead of tabs
-set shiftwidth=2    " Number of auto-indent spaces set smartindent	    " Enable smart-indent
-set smarttab	    " Enable smart-tabs set softtabstop=2   " Number of spaces per Tab
+set shiftwidth=2    " Number of auto-indent spaces set smartindent
+set smarttab	    " Enable smart-tabs set softtabstop=2
 set clipboard=unnamed
 set encoding=utf-8
 set showmatch	    " Highlight matching brace
@@ -81,6 +81,7 @@ filetype plugin indent on    " required
 let mapleader = ","
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NERDTreeToggle<Enter>
+map <leader>m /=======\|<<<<<<< HEAD\|>>>>>>> .*<CR>
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Gblame<Esc>
 nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
@@ -138,7 +139,6 @@ let g:rubycomplete_rails = 1
 " NERDTree stuff
 autocmd StdinReadPre * let s:std_in1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-nnoremap c :bp\|bd #<CR>
 let g:airline#extensions#tabline#enabled = 1 " This add tabs (buffers) on the top
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
