@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell-custom"
+ZSH_THEME="ricvillagrana"
 
 plugins=( git
 )
@@ -16,6 +16,7 @@ alias erc='vim ~/.zshrc'
 
 alias art='php artisan'
 alias books='~/Documents/books'
+alias dotfiles='~/Documents/dotfiles'
 alias c='clear'
 alias cmatrix='cmatrix -BC blue'
 alias ffind='find * -type f'
@@ -28,6 +29,7 @@ alias tmux-conf='vim ~/.tmux.conf'
 alias vim='nvim'
 alias vimrc='vim ~/.vimrc'
 alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
+alias gg='git grep'
 
 if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
@@ -81,4 +83,4 @@ export LC_ALL=en_US.UTF-8
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # FIRST SCRIPTS
-python3 ~/dotfiles/scripts/quoter/main.py
+# python3 ~/dotfiles/scripts/quoter/main.py

@@ -15,7 +15,7 @@ response = requests.get(uri)
 data = json.loads(response.text)
 
 print("\n\n")
-print(bcolors.OKGREEN + data['en'] + '"' + bcolors.ENDC)
+print(bcolors.OKGREEN + '"' + data['en'] + '"' + bcolors.ENDC)
 print()
 print(bcolors.BOLD + "–" + data['author'] + bcolors.ENDC)
 print("\n\n")

@@ -67,6 +67,7 @@
 <leader>	.vimrc	/^map <leader> <Plug>(easymotion-prefix)$/;"	m
 <leader>bp	.vimrc	/^nmap <silent> <leader>bp <ESC>\/binding.pry<CR>$/;"	m
 <leader>c	.vimrc	/^nmap <leader>c :term ++curwin<CR>$/;"	m
+<leader>m	.vimrc	/^map <leader>m \/=======\\|<<<<<<< HEAD\\|>>>>>>> .*<CR>$/;"	m
 <leader>mc	.vimrc	/^nmap <silent> <leader>mc <ESC>\/\\v^[<=>]{7}( .*\\|$)<CR>$/;"	m
 <leader>r	.vimrc	/^nmap <leader>r :source ~\/.config\/nvim\/init.vim<CR>$/;"	m
 <leader>t	.vimrc	/^map <leader>t :NERDTreeToggle<Enter>$/;"	m
@@ -130,6 +131,8 @@ Archlinux plugin	.oh-my-zsh/plugins/archlinux/README.md	/^# Archlinux plugin$/;"
 Author	.oh-my-zsh/plugins/frontend-search/README.md	/^## Author$/;"	s
 Autojump plugin	.oh-my-zsh/plugins/autojump/README.md	/^# Autojump plugin$/;"	c
 Automatic	.oh-my-zsh/plugins/wd/README.md	/^#### Automatic$/;"	t
+BOLD	scripts/github_stats/main.py	/^    BOLD = '\\033[1m'$/;"	v	class:bcolors
+BOLD	scripts/quoter/main.py	/^    BOLD = '\\033[1m'$/;"	v	class:bcolors
 Basic Installation	.oh-my-zsh/README.md	/^### Basic Installation$/;"	S
 Battery Plugin	.oh-my-zsh/plugins/battery/README.md	/^# Battery Plugin$/;"	c
 Boot2docker autocomplete plugin	.oh-my-zsh/plugins/boot2docker/README.md	/^## Boot2docker autocomplete plugin$/;"	s
@@ -204,6 +207,8 @@ Docker-compose	.oh-my-zsh/plugins/docker-compose/README.md	/^# Docker-compose$/;
 Doctl	.oh-my-zsh/plugins/doctl/README.md	/^# Doctl$/;"	c
 END	.oh-my-zsh/plugins/autoenv/autoenv.plugin.zsh	/^    cat <<END >&2$/;"	h
 END	.oh-my-zsh/plugins/forklift/forklift.plugin.zsh	/^  osascript 2>&1 1>\/dev\/null <<END$/;"	h
+ENDC	scripts/github_stats/main.py	/^    ENDC = '\\033[0m'$/;"	v	class:bcolors
+ENDC	scripts/quoter/main.py	/^    ENDC = '\\033[0m'$/;"	v	class:bcolors
 ENVIRONMENT	.oh-my-zsh/plugins/scd/README.md	/^# ENVIRONMENT$/;"	c
 EOD	.oh-my-zsh/lib/compfix.zsh	/^  cat <<EOD$/;"	h
 EOD	.oh-my-zsh/plugins/nyan/nyan.plugin.zsh	/^cat >&2 <<-EOD$/;"	h
@@ -251,6 +256,8 @@ Excluded gems	.oh-my-zsh/plugins/bundler/README.md	/^## Excluded gems$/;"	s
 Expanding ZSH prompt with current Terraform workspace name	.oh-my-zsh/plugins/terraform/README.md	/^### Expanding ZSH prompt with current Terraform workspace name$/;"	S
 Experimental Features	.oh-my-zsh/plugins/emoji/README.md	/^##  Experimental Features$/;"	s
 Extensions aliases	.oh-my-zsh/plugins/vscode/README.md	/^## Extensions aliases$/;"	s
+FAIL	scripts/github_stats/main.py	/^    FAIL = '\\033[91m'$/;"	v	class:bcolors
+FAIL	scripts/quoter/main.py	/^    FAIL = '\\033[91m'$/;"	v	class:bcolors
 FEATURES	.oh-my-zsh/plugins/apache2-macports/README.md	/^### FEATURES$/;"	S
 FILES	.oh-my-zsh/plugins/scd/README.md	/^# FILES$/;"	c
 Fabric	.oh-my-zsh/plugins/fabric/README.md	/^# Fabric$/;"	c
@@ -291,6 +298,8 @@ Golang plugin	.oh-my-zsh/plugins/golang/README.md	/^# Golang plugin$/;"	c
 Gradle Plugin	.oh-my-zsh/plugins/gradle/README.md	/^## Gradle Plugin$/;"	s
 Grails Commands	.oh-my-zsh/plugins/grails/README.md	/^## Grails Commands$/;"	s
 Grails plugin	.oh-my-zsh/plugins/grails/README.md	/^# Grails plugin$/;"	c
+HEADER	scripts/github_stats/main.py	/^    HEADER = '\\033[95m'$/;"	v	class:bcolors
+HEADER	scripts/quoter/main.py	/^    HEADER = '\\033[95m'$/;"	v	class:bcolors
 HERE	.oh-my-zsh/plugins/sprunge/sprunge.plugin.zsh	/^cat << HERE$/;"	h
 HTTPie	.oh-my-zsh/plugins/httpie/README.md	/^## HTTPie$/;"	s
 Hanami Plugin	.oh-my-zsh/plugins/hanami/README.md	/^# Hanami Plugin #$/;"	c
@@ -395,6 +404,10 @@ Nomad	.oh-my-zsh/plugins/nomad/README.md	/^# Nomad$/;"	c
 Note	.oh-my-zsh/plugins/npx/README.md	/^## Note$/;"	s
 Notes	.oh-my-zsh/plugins/thefuck/README.md	/^## Notes$/;"	s
 Nyan plugin	.oh-my-zsh/plugins/nyan/README.md	/^# Nyan plugin$/;"	c
+OKBLUE	scripts/github_stats/main.py	/^    OKBLUE = '\\033[94m'$/;"	v	class:bcolors
+OKBLUE	scripts/quoter/main.py	/^    OKBLUE = '\\033[94m'$/;"	v	class:bcolors
+OKGREEN	scripts/github_stats/main.py	/^    OKGREEN = '\\033[92m'$/;"	v	class:bcolors
+OKGREEN	scripts/quoter/main.py	/^    OKGREEN = '\\033[92m'$/;"	v	class:bcolors
 OPTIONS	.oh-my-zsh/plugins/scd/README.md	/^## OPTIONS$/;"	s
 OS X Homebrew Setup	.oh-my-zsh/plugins/git-extras/README.md	/^### OS X Homebrew Setup$/;"	S
 OSX plugin	.oh-my-zsh/plugins/osx/README.md	/^# OSX plugin$/;"	c
@@ -488,6 +501,8 @@ Tips	.oh-my-zsh/plugins/spring/README.md	/^## Tips$/;"	s
 Tmuxinator plugin	.oh-my-zsh/plugins/tmuxinator/README.md	/^# Tmuxinator plugin$/;"	c
 Toggle auto fetch per folder	.oh-my-zsh/plugins/git-auto-fetch/README.md	/^#### Toggle auto fetch per folder$/;"	t
 Tools	.oh-my-zsh/plugins/jsontools/README.md	/^## Tools$/;"	s
+UNDERLINE	scripts/github_stats/main.py	/^    UNDERLINE = '\\033[4m'$/;"	v	class:bcolors
+UNDERLINE	scripts/quoter/main.py	/^    UNDERLINE = '\\033[4m'$/;"	v	class:bcolors
 URLTools plugin	.oh-my-zsh/plugins/urltools/README.md	/^# URLTools plugin$/;"	c
 Ubuntu plugin	.oh-my-zsh/plugins/ubuntu/README.md	/^# Ubuntu plugin$/;"	c
 Uninstalling Oh My Zsh	.oh-my-zsh/README.md	/^## Uninstalling Oh My Zsh$/;"	s
@@ -554,6 +569,8 @@ Versioned Xcode Naming Conventions	.oh-my-zsh/plugins/xcode/README.md	/^### Vers
 Vim Interaction	.oh-my-zsh/plugins/vim-interaction/README.md	/^# Vim Interaction #$/;"	c
 Vim edition	.oh-my-zsh/plugins/vi-mode/README.md	/^Vim edition$/;"	s
 Vundle plugin	.oh-my-zsh/plugins/vundle/README.md	/^# Vundle plugin$/;"	c
+WARNING	scripts/github_stats/main.py	/^    WARNING = '\\033[93m'$/;"	v	class:bcolors
+WARNING	scripts/quoter/main.py	/^    WARNING = '\\033[93m'$/;"	v	class:bcolors
 WP-CLI	.oh-my-zsh/plugins/wp-cli/README.md	/^# WP-CLI$/;"	c
 What's inside?	.oh-my-zsh/plugins/mercurial/README.md	/^### What's inside?$/;"	S
 Widget	.oh-my-zsh/plugins/wp-cli/README.md	/^### Widget$/;"	S
@@ -1056,6 +1073,7 @@ apache2restart	.oh-my-zsh/plugins/apache2-macports/apache2-macports.plugin.zsh	/
 apache2start	.oh-my-zsh/plugins/apache2-macports/apache2-macports.plugin.zsh	/^alias apache2start='sudo \/opt\/local\/etc\/LaunchDaemons\/org.macports.apache2\/apache2.wrapper/;"	a
 apache2stop	.oh-my-zsh/plugins/apache2-macports/apache2-macports.plugin.zsh	/^alias apache2stop='sudo \/opt\/local\/etc\/LaunchDaemons\/org.macports.apache2\/apache2.wrapper /;"	a
 api	.oh-my-zsh/plugins/debian/debian.plugin.zsh	/^alias api='aptitude'$/;"	a
+api_url	scripts/github_stats/main.py	/^api_url = 'https:\/\/api.github.com\/'$/;"	v
 aplay	.oh-my-zsh/plugins/ansible/ansible.plugin.zsh	/^alias aplay='ansible-playbook '$/;"	a
 app	.oh-my-zsh/plugins/debian/debian.plugin.zsh	/^alias app='apt-cache policy'$/;"	a
 aps	.oh-my-zsh/plugins/debian/debian.plugin.zsh	/^alias aps='aptitude search'$/;"	a
@@ -1111,6 +1129,8 @@ bbd	.oh-my-zsh/plugins/bbedit/bbedit.plugin.zsh	/^alias bbd=bbdiff$/;"	a
 bbedit	.oh-my-zsh/plugins/bbedit/README.md	/^## bbedit$/;"	s
 bbpb	.oh-my-zsh/plugins/bbedit/bbedit.plugin.zsh	/^alias bbpb='pbpaste | bbedit --clean --view-top'$/;"	a
 bcn	.oh-my-zsh/plugins/bundler/bundler.plugin.zsh	/^alias bcn="bundle clean"$/;"	a
+bcolors	scripts/github_stats/main.py	/^class bcolors:$/;"	c
+bcolors	scripts/quoter/main.py	/^class bcolors:$/;"	c
 be	.oh-my-zsh/plugins/bundler/bundler.plugin.zsh	/^alias be="bundle exec"$/;"	a
 behind	.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^                        behind = int(div[len('behind '):].strip())$/;"	v
 behind	.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^ahead, behind = 0, 0$/;"	v
@@ -1153,7 +1173,6 @@ byes	.oh-my-zsh/plugins/lol/lol.plugin.zsh	/^alias byes='exit'$/;"	a
 bzr_prompt_info	.oh-my-zsh/lib/bzr.zsh	/^function bzr_prompt_info() {$/;"	f
 c	.oh-my-zsh/plugins/composer/composer.plugin.zsh	/^alias c='composer'$/;"	a
 c	.oh-my-zsh/plugins/singlechar/singlechar.plugin.zsh	/^alias c='cat'$/;"	a
-c	.vimrc	/^nnoremap c :bp\\|bd #<CR>$/;"	m
 c3	.oh-my-zsh/plugins/cakephp3/cakephp3.plugin.zsh	/^alias c3='bin\/cake'$/;"	a
 c3cache	.oh-my-zsh/plugins/cakephp3/cakephp3.plugin.zsh	/^alias c3cache='bin\/cake orm_cache clear'$/;"	a
 c3migrate	.oh-my-zsh/plugins/cakephp3/cakephp3.plugin.zsh	/^alias c3migrate='bin\/cake migrations migrate'$/;"	a
@@ -1271,6 +1290,8 @@ d0	.oh-my-zsh/plugins/systemadmin/systemadmin.plugin.zsh	/^d0() {$/;"	f
 d64	.oh-my-zsh/plugins/encode64/encode64.plugin.zsh	/^alias d64=decode64$/;"	a
 dartlang	.oh-my-zsh/plugins/frontend-search/frontend-search.plugin.zsh	/^alias dartlang='frontend dartlang'$/;"	a
 dash	.oh-my-zsh/plugins/dash/dash.plugin.zsh	/^dash() { open dash:\/\/"$*" }$/;"	f
+data	scripts/github_stats/main.py	/^    data = json.loads(response.text)$/;"	v
+data	scripts/quoter/main.py	/^data = json.loads(response.text)$/;"	v
 dcb	.oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh	/^alias dcb='docker-compose build'$/;"	a
 dcdn	.oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh	/^alias dcdn='docker-compose down'$/;"	a
 dce	.oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh	/^alias dce='docker-compose exec'$/;"	a
@@ -2286,9 +2307,12 @@ rehash	.oh-my-zsh/plugins/gnu-utils/gnu-utils.plugin.zsh	/^  function rehash() {
 reloadpost	.oh-my-zsh/plugins/postgres/postgres.plugin.zsh	/^alias reloadpost='pg_ctl reload -D \/usr\/local\/var\/postgres -s'$/;"	a
 remote_console	.oh-my-zsh/plugins/rails/rails.plugin.zsh	/^function remote_console() {$/;"	f
 repo	.oh-my-zsh/plugins/repo/README.md	/^## repo$/;"	s
+repos	scripts/github_stats/main.py	/^repos = yaml.load(open('.\/repos.yml', 'r'))['repos']$/;"	v
 repow	.oh-my-zsh/plugins/pow/pow.plugin.zsh	/^repow(){$/;"	f
 req20	.oh-my-zsh/plugins/systemadmin/systemadmin.plugin.zsh	/^req20() {$/;"	f
 require_tool	.oh-my-zsh/tools/require_tool.sh	/^require_tool ()$/;"	f
+response	scripts/github_stats/main.py	/^    response = response = requests.get(api_url + 'repos\/' + repo)$/;"	v
+response	scripts/quoter/main.py	/^response = requests.get(uri)$/;"	v
 restartpost	.oh-my-zsh/plugins/postgres/postgres.plugin.zsh	/^alias restartpost='stoppost && sleep 1 && startpost'$/;"	a
 retlog	.oh-my-zsh/plugins/systemadmin/systemadmin.plugin.zsh	/^function retlog() {$/;"	f
 rfind	.oh-my-zsh/plugins/ruby/ruby.plugin.zsh	/^alias rfind='find . -name "*.rb" | xargs grep -n'$/;"	a
@@ -2572,6 +2596,7 @@ update_current_git_vars	.oh-my-zsh/plugins/git-prompt/git-prompt.plugin.zsh	/^fu
 update_terminalapp_cwd	.oh-my-zsh/lib/termsupport.zsh	/^  function update_terminalapp_cwd() {$/;"	f
 upgrade	.oh-my-zsh/plugins/archlinux/archlinux.plugin.zsh	/^  function upgrade() {$/;"	f
 upgrade_oh_my_zsh	.oh-my-zsh/lib/functions.zsh	/^function upgrade_oh_my_zsh() {$/;"	f
+uri	scripts/quoter/main.py	/^uri = 'https:\/\/programming-quotes-api.herokuapp.com\/quotes\/random'$/;"	v
 urldecode	.oh-my-zsh/plugins/urltools/urltools.plugin.zsh	/^        alias urldecode="perl -e '\\$new=\\$ARGV[0]; \\$new =~ s\/\\%([A-Fa-f0-9]{2})\/pack(\\"C/;"	a
 urldecode	.oh-my-zsh/plugins/urltools/urltools.plugin.zsh	/^        alias urldecode='perl -MURI::Encode -ep "uri_decode($ARGV[0]);"'$/;"	a
 urldecode	.oh-my-zsh/plugins/urltools/urltools.plugin.zsh	/^        alias urldecode='perl -MURI::Escape -ep "uri_unescape($ARGV[0]);"'$/;"	a

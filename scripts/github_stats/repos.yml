@@ -1,0 +1,5 @@
+repos:
+  - facebook/react
+  - vuejs/vue
+  - ricvillagrana/easy-record
+  - ricvillagrana/capybara_watcher

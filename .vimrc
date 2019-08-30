@@ -38,6 +38,9 @@ call vundle#begin()
   Plugin 'dracula/vim'
 
   " === PLUGINS ===
+  Plugin 'StanAngeloff/php.vim'
+  Plugin 'Xuyuanp/nerdtree-git-plugin'
+  Plugin 'Yggdroot/indentLine'
   Plugin 'airblade/vim-gitgutter'
   Plugin 'burner/vim-svelte'
   Plugin 'cespare/vim-toml'
@@ -45,9 +48,11 @@ call vundle#begin()
   Plugin 'ervandew/supertab'
   Plugin 'gko/vim-coloresque'
   Plugin 'jiangmiao/auto-pairs'
+  Plugin 'jparise/vim-graphql'
   Plugin 'junegunn/fzf'
   Plugin 'jwalton512/vim-blade'
   Plugin 'kchmck/vim-coffee-script'
+  Plugin 'leafgarland/typescript-vim'
   Plugin 'ludovicchabant/vim-gutentags'
   Plugin 'mattn/emmet-vim'
   Plugin 'maxmellon/vim-jsx-pretty'
@@ -63,7 +68,6 @@ call vundle#begin()
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/syntastic'
-  Plugin 'StanAngeloff/php.vim'
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tpope/vim-endwise'
   Plugin 'tpope/vim-fugitive'
@@ -72,16 +76,12 @@ call vundle#begin()
   Plugin 'tpope/vim-sensible'
   Plugin 'tpope/vim-surround'
   Plugin 'vim-airline/vim-airline'
-  Plugin 'Xuyuanp/nerdtree-git-plugin'
-  Plugin 'Yggdroot/indentLine'
+  Plugin 'yardnsm/vim-import-cost', { 'do': 'npm install' }
   Plugin 'zivyangll/git-blame.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 let mapleader = ","
-map <leader> <Plug>(easymotion-prefix)
-map <leader>t :NERDTreeToggle<Enter>
-map <leader>m /=======\|<<<<<<< HEAD\|>>>>>>> .*<CR>
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Gblame<Esc>
 nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
@@ -97,6 +97,9 @@ nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
 nmap <C-u> :bprevious<Esc>
 nmap <C-i> :bnext<Esc>
+map <leader> <Plug>(easymotion-prefix)
+map <leader>t :NERDTreeToggle<Enter>
+map <leader>m /=======\|<<<<<<< HEAD\|>>>>>>> .*<CR>
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -120,33 +123,41 @@ let g:nord_underline = 1
 " Reset colors
 highlight LineNr ctermfg=239
 hi airline_tabfill ctermbg=NONE guibg=NONE
-hi Comment ctermfg=darkred
+hi Comment ctermfg=242
 hi VertSplit ctermbg=NONE ctermfg=238
-" hi StatusLine ctermbg=None guibg=NONE
-" hi CursorLine ctermbg=None guibg=NONE
 hi Visual ctermbg=238 gui=none
 
 set statusline+=%{gutentags#statusline()}
 call neomake#configure#automake('nrwi', 500)
+
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
+
 " Rails config
 set omnifunc=rubycomplete#Complete
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global=1
 let g:rubycomplete_rails = 1
+
 " NERDTree stuff
 autocmd StdinReadPre * let s:std_in1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-let g:airline#extensions#tabline#enabled = 1 " This add tabs (buffers) on the top
+
+" This add tabs (buffers) on the top
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
 let g:ale_fixers = { 'javascript': ['eslint'], 'jsx': ['eslint'], 'js': ['eslint'], 'scss': ['prettier'] }
 let g:ale_fix_on_save = 1
+
 " Emmet
 let g:user_emmet_install_global = 1
 let g:user_emmet_leader_key='<C-Z>'
+
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
 set fillchars=vert:\│,eob:\ 
