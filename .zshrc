@@ -11,8 +11,10 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 # aliases
+alias erc='vim ~/dotfiles/.zshrc'
+alias vimrc='vim ~/dotfiles/.vimrc'
 alias src='source ~/.zshrc'
-alias erc='vim ~/.zshrc'
+alias vim='nvim'
 
 alias art='php artisan'
 alias books='~/Documents/books'
@@ -26,8 +28,6 @@ alias please='sudo $(fc -ln -1)'
 alias rocket='echo 🚀'
 alias rsql='sqlitebrowser db/*.sqlite3'
 alias tmux-conf='vim ~/.tmux.conf'
-alias vim='nvim'
-alias vimrc='vim ~/.vimrc'
 alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
 alias gg='git grep'
 
@@ -81,6 +81,10 @@ export LC_ALL=en_US.UTF-8
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add NVM
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # FIRST SCRIPTS
 # python3 ~/dotfiles/scripts/quoter/main.py

@@ -1,6 +1,7 @@
 set number	    " Show line numbers
 " set linebreak	    " Break lines at word (requires Wrap lines)
 " set showbreak=+++   " Wrap-broken line prefix
+set colorcolumn=80
 set smartcase	    " Enable smart-case search
 set hlsearch        " Highlight search
 set incsearch	    " Searches for strings incrementally
@@ -17,7 +18,7 @@ set swapfile
 set dir=~/.swp/     " Define path to swp files on $HOME
 set foldmethod=indent " automatically fold by indent level
 set nofoldenable      " ... but have folds open by default<Paste>
-set nocompatible    " be ijproved, required
+set nocompatible    " be improved, required
 filetype off        " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -130,9 +131,15 @@ hi Visual ctermbg=238 gui=none
 set statusline+=%{gutentags#statusline()}
 call neomake#configure#automake('nrwi', 500)
 
+let g:neosnippet#enable_completed_snippet = 1
+let g:deoplete#enable_at_startup = 1
+
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
+
+" GrpahQL
+au BufNewFile,BufRead *.prisma setfiletype graphql
 
 " Rails config
 set omnifunc=rubycomplete#Complete
@@ -160,4 +167,7 @@ let g:user_emmet_leader_key='<C-Z>'
 
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
-set fillchars=vert:\│,eob:\ 
+
+if has('nvim')
+  set fillchars=vert:\│,eob:\ 
+endif

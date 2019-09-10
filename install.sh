@@ -1,5 +1,8 @@
 # Here should be all the necessary commands to install this dotfiles
-cp ./*rc ..
+ln -s ./.vimrc ~/.vimrc
+ln -s ./.zshrc ~/.zshrc
+ln -s ./.tmux.conf ~/.tmux.conf
+
 brew install fzf
 
 vim +PluginInstall +qa

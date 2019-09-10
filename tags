@@ -1452,12 +1452,16 @@ fzf	.oh-my-zsh/plugins/fzf/README.md	/^# fzf$/;"	c
 g	.oh-my-zsh/plugins/git/git.plugin.zsh	/^alias g='git'$/;"	a
 g:NERDDefaultAlign	.vimrc	/^let g:NERDDefaultAlign = 'left'$/;"	v
 g:NERDSpaceDelims	.vimrc	/^let g:NERDSpaceDelims = 1$/;"	v
-g:airline#extensions#tabline#enabled	.vimrc	/^let g:airline#extensions#tabline#enabled = 1 " This add tabs (buffers) on the top$/;"	v
+g:airline#extensions#tabline#enabled	.vimrc	/^let g:airline#extensions#tabline#enabled = 1$/;"	v
+g:airline#extensions#tabline#left_alt_sep	.vimrc	/^let g:airline#extensions#tabline#left_alt_sep = '|'$/;"	v
+g:airline#extensions#tabline#left_sep	.vimrc	/^let g:airline#extensions#tabline#left_sep = ' '$/;"	v
 g:ale_fix_on_save	.vimrc	/^let g:ale_fix_on_save = 1$/;"	v
 g:ale_fixers	.vimrc	/^let g:ale_fixers = { 'javascript': ['eslint'], 'jsx': ['eslint'], 'js': ['eslint'], 'scss': ['pr/;"	v
 g:ale_linters	.vimrc	/^let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }$/;"	v
 g:blade_custom_directives	.vimrc	/^let g:blade_custom_directives = ['datetime', 'javascript']$/;"	v
+g:deoplete#enable_at_startup	.vimrc	/^let g:deoplete#enable_at_startup = 1$/;"	v
 g:jsx_ext_required	.vimrc	/^let g:jsx_ext_required = 0 " Allow JSX in normal JS files$/;"	v
+g:neosnippet#enable_completed_snippet	.vimrc	/^let g:neosnippet#enable_completed_snippet = 1$/;"	v
 g:nord_bold	.vimrc	/^let g:nord_bold = 1$/;"	v
 g:nord_bold_vertical_split_line	.vimrc	/^let g:nord_bold_vertical_split_line = 1$/;"	v
 g:nord_cursor_line_number_background	.vimrc	/^let g:nord_cursor_line_number_background = 1$/;"	v
