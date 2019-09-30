@@ -100,7 +100,7 @@ nmap <C-u> :bprevious<Esc>
 nmap <C-i> :bnext<Esc>
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NERDTreeToggle<Enter>
-map <leader>m /=======\|<<<<<<< HEAD\|>>>>>>> .*<CR>
+map <leader>m /=======\\|<<<<<<< HEAD\\|>>>>>>> .*<CR>
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -108,7 +108,7 @@ let g:NERDDefaultAlign = 'left'
 " === Syntax | Theme ===
 syntax enable
 syn on
-set cursorline
+" set cursorline
 
 " === THEMES ===
 colorscheme nord

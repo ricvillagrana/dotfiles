@@ -11,30 +11,30 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 # aliases
-alias erc='vim ~/dotfiles/.zshrc'
-alias vimrc='vim ~/dotfiles/.vimrc'
+alias erc='nvim ~/dotfiles/.zshrc'
+alias vimrc='nvim ~/dotfiles/.vimrc'
 alias src='source ~/.zshrc'
-alias vim='nvim'
-
 alias art='php artisan'
-alias books='~/Documents/books'
-alias dotfiles='~/Documents/dotfiles'
 alias c='clear'
-alias cmatrix='cmatrix -BC blue'
+alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
+
+alias books='~/Documents/books'
+alias dotfiles='~/dotfiles'
 alias ffind='find * -type f'
 alias htdocs='/opt/lampp/htdocs'
 alias mc='java -jar ~/Downloads/launcher.jar'
 alias please='sudo $(fc -ln -1)'
 alias rocket='echo 🚀'
 alias rsql='sqlitebrowser db/*.sqlite3'
-alias tmux-conf='vim ~/.tmux.conf'
-alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
+alias tmux-conf='nvim ~/.tmux.conf'
+alias cmatrix='cmatrix -BC blue'
 alias gg='git grep'
 
 if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
 fi
 stty -ixon
+export PATH="$PATH:$HOME"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.composer/vendor/bin:/opt/android-studio/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin:/path/to/elixir/bin"
@@ -49,9 +49,7 @@ export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/usr/games"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/local/games"
-export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:/usr/local/Cellar/mongodb/4.0.3_1/bin"
-export PATH="$PATH:/usr/local/mysql/bin"
+export PATH="$PATH:/usr/local/sbin" export PATH="$PATH:/usr/local/Cellar/mongodb/4.0.3_1/bin" export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/usr/local/opt/erlang@20/bin"
 export PATH="$PATH:/usr/local/opt/mysql@5.6/bin"
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
