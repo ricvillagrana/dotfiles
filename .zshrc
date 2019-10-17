@@ -1,7 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="ricvillagrana"
 
-plugins=( git
+plugins=(
+  git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -11,6 +12,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 # aliases
+alias v='nvim'
 alias erc='nvim ~/dotfiles/.zshrc'
 alias vimrc='nvim ~/dotfiles/.vimrc'
 alias src='source ~/.zshrc'
@@ -86,3 +88,13 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # FIRST SCRIPTS
 # python3 ~/dotfiles/scripts/quoter/main.py
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh

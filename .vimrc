@@ -28,15 +28,8 @@ call vundle#begin()
   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
   " === THEMES ===
+  " This takes terminal colors, just modify them
   Plugin 'arcticicestudio/nord-vim'
-  Plugin 'connorholyday/vim-snazzy'
-  Plugin 'drewtempelmeyer/palenight.vim'
-  Plugin 'fatih/molokai'
-  Plugin 'sonph/onehalf', {'rtp': 'vim/'}
-  Plugin 'flrnprz/candid.vim'
-  Plugin 'flrnprz/taffy.vim'
-  Plugin 'joshdick/onedark.vim'
-  Plugin 'dracula/vim'
 
   " === PLUGINS ===
   Plugin 'StanAngeloff/php.vim'
