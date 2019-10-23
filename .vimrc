@@ -160,6 +160,7 @@ let g:user_emmet_leader_key='<C-Z>'
 
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
+autocmd BufRead,BufNewFile   *.php set shiftwidth=4
 
 if has('nvim')
   set fillchars=vert:\│,eob:\ 

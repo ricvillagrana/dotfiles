@@ -19,6 +19,7 @@ alias src='source ~/.zshrc'
 alias art='php artisan'
 alias c='clear'
 alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
+alias clean-node-modules='find . -name "node_modules" -type d -prune -print | xargs du -chs'
 
 alias books='~/Documents/books'
 alias dotfiles='~/dotfiles'
