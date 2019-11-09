@@ -13,8 +13,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 # aliases
 alias v='nvim'
-alias erc='nvim ~/dotfiles/.zshrc'
+alias purevim='vim -u NONE'
 alias vimrc='nvim ~/dotfiles/.vimrc'
+alias erc='nvim ~/dotfiles/.zshrc'
 alias src='source ~/.zshrc'
 alias art='php artisan'
 alias c='clear'
@@ -57,6 +58,7 @@ export PATH="$PATH:/usr/local/opt/erlang@20/bin"
 export PATH="$PATH:/usr/local/opt/mysql@5.6/bin"
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 
+export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
@@ -99,3 +101,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+###-tns-completion-start-###
+if [ -f /Users/ricardo/.tnsrc ]; then 
+    source /Users/ricardo/.tnsrc 
+fi
+###-tns-completion-end-###
