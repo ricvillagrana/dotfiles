@@ -104,7 +104,7 @@ syn on
 " set cursorline
 
 " === THEMES ===
-colorscheme nord
+" colorscheme nord
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_status_lines = 1
 let g:nord_bold_vertical_split_line = 1
@@ -113,12 +113,15 @@ let g:nord_bold = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
+hi ColorColumn ctermbg=8
 
 " Reset colors
 highlight LineNr ctermfg=239
 hi airline_tabfill ctermbg=NONE guibg=NONE
+let g:airline_theme='nord'
 hi Comment ctermfg=242
-hi VertSplit ctermbg=NONE ctermfg=238
+" hi VertSplit ctermbg=NONE ctermfg=238
+hi VertSplit ctermfg=black ctermbg=none cterm=NONE
 hi Visual ctermbg=238 gui=none
 
 set statusline+=%{gutentags#statusline()}

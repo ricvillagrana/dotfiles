@@ -33,6 +33,8 @@ alias rsql='sqlitebrowser db/*.sqlite3'
 alias tmux-conf='nvim ~/.tmux.conf'
 alias cmatrix='cmatrix -BC blue'
 alias gg='git grep'
+alias glop='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
+alias gsum='git shortlog --summary --numbered'
 
 if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
