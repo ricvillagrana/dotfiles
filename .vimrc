@@ -19,6 +19,7 @@ set dir=~/.swp/     " Define path to swp files on $HOME
 set foldmethod=indent " automatically fold by indent level
 set nofoldenable      " ... but have folds open by default<Paste>
 set nocompatible    " be improved, required
+set splitright
 filetype off        " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -44,6 +45,7 @@ call vundle#begin()
   Plugin 'jiangmiao/auto-pairs'
   Plugin 'jparise/vim-graphql'
   Plugin 'junegunn/fzf'
+  Plugin 'junegunn/fzf.vim'
   Plugin 'jwalton512/vim-blade'
   Plugin 'kchmck/vim-coffee-script'
   Plugin 'leafgarland/typescript-vim'
@@ -75,16 +77,19 @@ call vundle#begin()
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+
 let mapleader = ","
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Gblame<Esc>
+noremap <C-p> :FZF<CR>
+noremap <C-s> :Rg<CR>
 nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 nmap <silent> <leader>bp <ESC>/binding.pry<CR>
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 nmap <leader>c :term ++curwin<CR>
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
-nmap <C-p> :FZF<CR>
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k

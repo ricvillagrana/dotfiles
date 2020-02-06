@@ -5,6 +5,7 @@ ln -s ./.tmux.conf ~/.tmux.conf
 ln -s ./.vim ~/.vim
 
 brew install fzf
+brew install ripgrep
 
 vim +PluginInstall +qa
 # Remember to prefix + I on TMUX
