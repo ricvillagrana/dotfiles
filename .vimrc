@@ -121,7 +121,7 @@ hi airline_tabfill ctermbg=NONE guibg=NONE
 let g:airline_theme='nord'
 hi Comment ctermfg=242
 " hi VertSplit ctermbg=NONE ctermfg=238
-hi VertSplit ctermfg=black ctermbg=none cterm=NONE
+hi VertSplit ctermfg=darkgray ctermbg=none cterm=NONE
 hi Visual ctermbg=238 gui=none
 
 set statusline+=%{gutentags#statusline()}
