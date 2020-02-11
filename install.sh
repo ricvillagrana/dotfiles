@@ -1,3 +1,5 @@
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Here should be all the necessary commands to install this dotfiles
 ln -s ./.vimrc ~/.vimrc
 ln -s ./.zshrc ~/.zshrc
