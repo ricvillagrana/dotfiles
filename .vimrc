@@ -59,31 +59,31 @@ call plug#begin()
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
-  Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
   Plug 'zivyangll/git-blame.vim'
 
   " === Laravel PHP ===
   Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-  Plug 'jwalton512/vim-blade', { 'for': 'blade' }
+  Plug 'jwalton512/vim-blade', { 'for': 'php' }
 
   " === JavaScript ===
   Plug 'burner/vim-svelte', { 'for': 'svelte' }
-  Plug 'jparise/vim-graphql', { 'for': 'javascript' }
+  Plug 'jparise/vim-graphql', { 'for': 'js' }
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-  Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
-  Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+  Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
+  Plug 'maxmellon/vim-jsx-pretty', { 'for': ['js', 'jsx'] }
+  Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
   Plug 'posva/vim-vue', { 'for': 'vue' }
+  Plug 'yardnsm/vim-import-cost', { 'do': 'npm install', 'for': ['js', 'jsx', 'vue', 'ts'] }
 
   " === Ruby / Ruby on Rails ===
-  Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
-  Plug 'tpope/vim-rails', { 'for': 'ruby' }
+  Plug 'ngmy/vim-rubocop', { 'for': 'rb' }
+  Plug 'tpope/vim-rails', { 'for': 'rb' }
 
   " === Elixir / Phoenix ===
-  Plug 'elixir-editors/vim-elixir'
+  Plug 'elixir-editors/vim-elixir', { 'for': 'xs' }
 
   " === Rust ===
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  Plug 'rust-lang/rust.vim', { 'for': 'rs' }
 
   " === Other files ===
   Plug 'cespare/vim-toml', { 'for': 'toml' }
@@ -131,16 +131,7 @@ let g:nord_bold = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
-hi ColorColumn ctermbg=8
-
-" Reset colors
-highlight LineNr ctermfg=239
-hi airline_tabfill ctermbg=NONE guibg=NONE
 let g:airline_theme='nord'
-hi Comment ctermfg=242
-" hi VertSplit ctermbg=NONE ctermfg=238
-hi VertSplit ctermfg=darkgray ctermbg=none cterm=NONE
-hi Visual ctermbg=238 gui=none
 
 set statusline+=%{gutentags#statusline()}
 call neomake#configure#automake('nrwi', 500)
@@ -182,6 +173,20 @@ let g:user_emmet_leader_key='<C-Z>'
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
 autocmd BufRead,BufNewFile   *.php set shiftwidth=4
+
+" Reset colors
+hi ColorColumn ctermbg=8
+hi LineNr ctermfg=239
+hi airline_tabfill ctermbg=NONE guibg=NONE
+hi Comment ctermfg=242
+hi VertSplit ctermfg=darkgray ctermbg=NONE cterm=NONE
+hi Visual ctermbg=238 gui=NONE
+hi clear NeomakeError
+hi clear NeomakeWarning
+hi clear NeomakeInfo
+hi NeomakeInfo    cterm=underline gui=underline ctermfg=Black  ctermbg=White
+hi NeomakeWarning cterm=underline gui=underline ctermfg=Black ctermbg=Yellow
+hi NeomakeError   cterm=underline gui=underline ctermfg=White ctermbg=Red
 
 if has('nvim')
   set fillchars=vert:\│,eob:\ 

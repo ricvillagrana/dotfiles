@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="ricvillagrana"
+ZSH_THEME="robbyrussell"
 
 plugins=(
   git
