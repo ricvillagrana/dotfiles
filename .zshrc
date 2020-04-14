@@ -6,7 +6,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Change autosuggest text color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
