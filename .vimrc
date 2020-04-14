@@ -95,7 +95,8 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 let mapleader = ","
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Gblame<Esc>
-noremap <C-p> :FZF<CR>
+" noremap <C-p> :FZF<CR>
+noremap <C-p> :Files<CR>
 noremap <C-s> :Rg<CR>
 nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 nmap <silent> <leader>bp <ESC>/binding.pry<CR>
@@ -138,6 +139,9 @@ call neomake#configure#automake('nrwi', 500)
 
 let g:neosnippet#enable_completed_snippet = 1
 let g:deoplete#enable_at_startup = 1
+
+" FZF config
+let g:fzf_preview_window = 'right:60%'
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
