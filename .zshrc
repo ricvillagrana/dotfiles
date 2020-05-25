@@ -11,6 +11,13 @@ source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Change autosuggest text color
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
+# ENV
+export THRIVE_PREVIEW_1=35.172.116.213
+export THRIVE_PREVIEW_2=54.204.196.217
+export THRIVE_PRODUCTION_1=100.27.24.173
+export THRIVE_PRODUCTION_2=100.26.189.38
+export THRIVE_PRODUCTION_MSU=18.233.10.200
+
 # aliases
 alias v='nvim'
 alias purevim='vim -u NONE'
@@ -36,6 +43,11 @@ alias gg='git grep'
 alias glop='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
 alias gsum='git shortlog --summary --numbered'
 
+# Android Studio
+export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export ANDROID_NDK_HOME=/usr/local/share/android-ndk
+
 if [ "$TERM" = "xterm" ]; then
   export TERM=xterm-256color
 fi
@@ -55,10 +67,18 @@ export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/usr/games"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/local/games"
-export PATH="$PATH:/usr/local/sbin" export PATH="$PATH:/usr/local/Cellar/mongodb/4.0.3_1/bin" export PATH="$PATH:/usr/local/mysql/bin"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/Cellar/mongodb/4.0.3_1/bin"
+export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/usr/local/opt/erlang@20/bin"
 export PATH="$PATH:/usr/local/opt/mysql@5.6/bin"
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/platforms"
+export PATH="$PATH:$ANDROID_HOME/build-tools"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
@@ -90,19 +110,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# FIRST SCRIPTS
-# python3 ~/dotfiles/scripts/quoter/main.py
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ricardo/.nvm/versions/node/v12.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
 ###-tns-completion-start-###
 if [ -f /Users/ricardo/.tnsrc ]; then 

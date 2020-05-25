@@ -58,6 +58,7 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
+  " Plug 'ycm-core/YouCompleteMe'
   Plug 'vim-airline/vim-airline'
   Plug 'zivyangll/git-blame.vim'
 
@@ -112,7 +113,7 @@ nmap <C-u> :bprevious<Esc>
 nmap <C-i> :bnext<Esc>
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NERDTreeToggle<Enter>
-map <leader>m /=======\\|<<<<<<< HEAD\\|>>>>>>> .*<CR>
+map <leader>m /=======\\|<<<<<<< .*\\|>>>>>>> .*<CR>
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -123,7 +124,6 @@ syn on
 " set cursorline
 
 " === THEMES ===
-" colorscheme nord
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_status_lines = 1
 let g:nord_bold_vertical_split_line = 1
@@ -135,13 +135,22 @@ let g:nord_underline = 1
 let g:airline_theme='nord'
 
 set statusline+=%{gutentags#statusline()}
-call neomake#configure#automake('nrwi', 500)
+if has('nvim') || has('vim')
+  call neomake#configure#automake('nrwi', 500)
+endif
 
 let g:neosnippet#enable_completed_snippet = 1
 let g:deoplete#enable_at_startup = 1
 
+" GitGutter
+let g:gitgutter_grep = 'rg'
+highlight! link SignColumn LineNr
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=5
+highlight GitGutterDelete ctermfg=1
+
 " FZF config
-let g:fzf_preview_window = 'right:60%'
+let g:fzf_preview_window = 'right:50%'
 
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
