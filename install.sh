@@ -26,5 +26,8 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.vim ~/.vim
 ln -s ~/dotfiles/.tmux ~/.tmux
 
+# Install FZF for terminal completion
+$(brew --prefix)/opt/fzf/install
+
 # Install everything else left.
 nvim +PluginInstall +qa

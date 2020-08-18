@@ -21,6 +21,7 @@ set nofoldenable      " ... but have folds open by default<Paste>
 set nocompatible    " be improved, required
 set splitright
 set splitbelow
+" set mouse=a
 filetype off        " required
 
 " Auto install Plug
@@ -58,6 +59,7 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
+
   " Plug 'ycm-core/YouCompleteMe'
   Plug 'vim-airline/vim-airline'
   Plug 'zivyangll/git-blame.vim'
@@ -69,10 +71,11 @@ call plug#begin()
   " === JavaScript ===
   Plug 'burner/vim-svelte', { 'for': 'svelte' }
   Plug 'jparise/vim-graphql', { 'for': 'js' }
+  Plug 'jxnblk/vim-mdx-js', { 'for': 'mdx' }
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
   Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
-  Plug 'maxmellon/vim-jsx-pretty', { 'for': ['js', 'jsx'] }
-  Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
+  Plug 'maxmellon/vim-jsx-pretty', { 'for': ['js', 'jsx', 'mdx'] }
+  Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx', 'mdx'] }
   Plug 'posva/vim-vue', { 'for': 'vue' }
   Plug 'yardnsm/vim-import-cost', { 'do': 'npm install', 'for': ['js', 'jsx', 'vue', 'ts'] }
 
@@ -164,6 +167,8 @@ set omnifunc=rubycomplete#Complete
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global=1
 let g:rubycomplete_rails = 1
+let g:surround_{char2nr('-')} = "<% \r %>"
+let g:surround_{char2nr('=')} = "<%= \r %>"
 
 " NERDTree stuff
 autocmd StdinReadPre * let s:std_in1
