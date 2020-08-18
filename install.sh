@@ -1,5 +1,29 @@
-# Uncomment cmake, macvim, etc. to install YCM
-brew install zsh fzf ripgrep # cmake macvim python mono go nodejs
+
+
+if [ "$(uname)" == "Darwin" ]; then
+    brew install zsh fzf ripgrep nodejs
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  sudo apt update
+  sudo apt install zsh fzf ripgrep nodejs
+
+  # Ruby and Rails
+  # Check this: https://github.com/rvm/ubuntu_rvm#2-change-your-terminal-window
+  sudo apt-get install software-properties-common
+  sudo apt-add-repository -y ppa:rael-gc/rvm
+  sudo apt-get update
+  sudo apt-get install rvm
+
+  # PHP and Composer
+  sudo apt install curl php-cli php-mbstring git unzip
+  cd ~
+  curl -sS https://getcomposer.org/installer -o composer-setup.php
+  php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+  # NPM CLI tools
+  npm install -g\
+    gatsby-cli
+fi
 
 # Install Oh My ZSH
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
