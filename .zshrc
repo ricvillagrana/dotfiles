@@ -33,7 +33,7 @@ alias books='~/Documents/books'
 alias dotfiles='~/dotfiles'
 alias ffind='find * -type f'
 alias htdocs='/opt/lampp/htdocs'
-alias mc='java -jar ~/Downloads/launcher.jar'
+alias mc='java -jar ~/Documents/Minecraft/launcher.jar'
 alias please='sudo $(fc -ln -1)'
 alias rocket='echo 🚀'
 alias rsql='sqlitebrowser db/*.sqlite3'
@@ -106,6 +106,8 @@ export LC_ALL=en_US.UTF-8
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Add NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

@@ -53,5 +53,10 @@ ln -s ~/dotfiles/.tmux ~/.tmux
 # Install FZF for terminal completion
 $(brew --prefix)/opt/fzf/install
 
+# Git
+git config --global credential.helper store
+git config --global user.name "Ricardo Villagrana"
+git config --global user.email "ricardovillagranal@gmail.com"
+
 # Install everything else left.
 nvim +PluginInstall +qa
