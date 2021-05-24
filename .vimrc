@@ -1,7 +1,7 @@
 set number	    " Show line numbers
 " set linebreak	    " Break lines at word (requires Wrap lines)
 " set showbreak=+++   " Wrap-broken line prefix
-set colorcolumn=80
+set colorcolumn=80  " 80
 set smartcase	    " Enable smart-case search
 set hlsearch        " Highlight search
 set incsearch	    " Searches for strings incrementally
@@ -40,7 +40,6 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
   Plug 'ervandew/supertab'
-  Plug 'gko/vim-coloresque'
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
@@ -48,19 +47,17 @@ call plug#begin()
   Plug 'mattn/emmet-vim'
   Plug 'neomake/neomake'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'prettier/vim-prettier'
   Plug 'ryanoasis/vim-devicons'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
+  Plug 'SirVer/ultisnips'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
-
-  " Plug 'ycm-core/YouCompleteMe'
   Plug 'vim-airline/vim-airline'
   Plug 'zivyangll/git-blame.vim'
 
@@ -69,15 +66,12 @@ call plug#begin()
   Plug 'jwalton512/vim-blade', { 'for': 'php' }
 
   " === JavaScript ===
-  Plug 'burner/vim-svelte', { 'for': 'svelte' }
-  Plug 'jparise/vim-graphql', { 'for': 'js' }
-  Plug 'jxnblk/vim-mdx-js', { 'for': 'mdx' }
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-  Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
+  " Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
   Plug 'maxmellon/vim-jsx-pretty', { 'for': ['js', 'jsx', 'mdx'] }
   Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx', 'mdx'] }
   Plug 'posva/vim-vue', { 'for': 'vue' }
-  Plug 'yardnsm/vim-import-cost', { 'do': 'npm install', 'for': ['js', 'jsx', 'vue', 'ts'] }
+  " Plug 'yardnsm/vim-import-cost', { 'do': 'npm install', 'for': ['js', 'jsx', 'vue', 'ts'] }
 
   " === Ruby / Ruby on Rails ===
   Plug 'ngmy/vim-rubocop', { 'for': 'rb' }
@@ -159,6 +153,11 @@ let g:fzf_preview_window = 'right:50%'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<c-g>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " GrpahQL
 au BufNewFile,BufRead *.prisma setfiletype graphql
 
@@ -191,6 +190,8 @@ let g:user_emmet_leader_key='<C-Z>'
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
 autocmd BufRead,BufNewFile   *.php set shiftwidth=4
+autocmd BufRead,BufNewFile   *.vue set shiftwidth=2
+autocmd BufRead,BufNewFile   *.js set shiftwidth=2
 
 " Reset colors
 hi ColorColumn ctermbg=8
@@ -199,9 +200,11 @@ hi airline_tabfill ctermbg=NONE guibg=NONE
 hi Comment ctermfg=242
 hi VertSplit ctermfg=darkgray ctermbg=NONE cterm=NONE
 hi Visual ctermbg=238 gui=NONE
-hi clear NeomakeError
-hi clear NeomakeWarning
+hi clear NeomakeMessage
 hi clear NeomakeInfo
+hi clear NeomakeWarning
+hi clear NeomakeError
+hi NeomakeMessage cterm=underline gui=underline ctermfg=Black  ctermbg=Green
 hi NeomakeInfo    cterm=underline gui=underline ctermfg=Black  ctermbg=White
 hi NeomakeWarning cterm=underline gui=underline ctermfg=Black ctermbg=Yellow
 hi NeomakeError   cterm=underline gui=underline ctermfg=White ctermbg=Red

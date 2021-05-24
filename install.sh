@@ -1,7 +1,5 @@
-
-
 if [ "$(uname)" == "Darwin" ]; then
-    brew install zsh fzf ripgrep nodejs
+  brew install zsh fzf ripgrep nodejs bzip2 oniguruma libzip
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   sudo apt update
   sudo apt install zsh fzf ripgrep nodejs
@@ -15,15 +13,23 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
   # PHP and Composer
   sudo apt install curl php-cli php-mbstring git unzip
-  cd ~
-  curl -sS https://getcomposer.org/installer -o composer-setup.php
-  php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-
-  # NPM CLI tools
-  npm install -g\
-    gatsby-cli
 fi
+
+# Install PHP Brew
+curl -L -O https://github.com/phpbrew/phpbrew/releases/latest/download/phpbrew.phar
+chmod +x phpbrew.phar
+# Move the file to some directory within your $PATH
+sudo mv phpbrew.phar /usr/local/bin/phpbrew
+phpbrew init
+
+cd ~
+curl -sS https://getcomposer.org/installer -o composer-setup.php
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+# NPM CLI tools
+npm install -g\
+  gatsby-cli
 
 # Install Oh My ZSH
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -45,6 +51,7 @@ mkdir -p ~/.config/nvim
 # Here should be all the necessary commands to install this dotfiles
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.vimrc ~/.config/nvim/init.vim
+ln -s ~/dotfiles/UltiSnips ~/.config/nvim/UltiSnips
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.vim ~/.vim

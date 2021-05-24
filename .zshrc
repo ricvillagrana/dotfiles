@@ -12,11 +12,7 @@ source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 # ENV
-export THRIVE_PREVIEW_1=35.172.116.213
-export THRIVE_PREVIEW_2=54.204.196.217
-export THRIVE_PRODUCTION_1=100.27.24.173
-export THRIVE_PRODUCTION_2=100.26.189.38
-export THRIVE_PRODUCTION_MSU=18.233.10.200
+export NODE_OPTIONS='--max-old-space-size=512'
 
 # aliases
 alias v='nvim'
@@ -29,6 +25,8 @@ alias c='clear'
 alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
 alias clean-node-modules='find . -name "node_modules" -type d -prune -print | xargs du -chs'
 
+alias top-mem='htop --sort-key=PERCENT_MEM'
+alias top-cpu='htop --sort-key=PERCENT_CPU'
 alias books='~/Documents/books'
 alias dotfiles='~/dotfiles'
 alias ffind='find * -type f'
@@ -59,6 +57,7 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin:/path/to/elixir/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin"
 export PATH="$PATH:$HOME/.vimpkg/bin"
+export PATH="$PATH:$HOME/.phpbrew/bashrc"
 export PATH="$PATH:$HOME/Library/Python/3.6/bin"
 export PATH="$PATH:/bin"
 export PATH="$PATH:/sbin"

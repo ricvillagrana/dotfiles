@@ -1,0 +1,22 @@
+snippet sfc "Vue Single File Component"
+<template>
+  <div>
+    $1
+  </div>
+</template>
+
+<script>
+export default {
+  $2
+}
+</script>
+endsnippet
+
+snippet props "Props"
+props: {
+  $1: {
+    default: $2,
+    type: $3,
+  },
+},
+endsnippet
