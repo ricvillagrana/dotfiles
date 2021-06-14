@@ -13,6 +13,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
   # PHP and Composer
   sudo apt install curl php-cli php-mbstring git unzip
+  git clone git://github.com/phpenv/phpenv.git ~/.phpenv
+  git clone https://github.com/php-build/php-build $(phpenv root)/plugins/php-build
 fi
 
 # Install PHP Brew

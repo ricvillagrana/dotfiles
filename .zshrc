@@ -53,6 +53,7 @@ stty -ixon
 export PATH="$PATH:$HOME"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.composer/vendor/bin:/opt/android-studio/bin"
+export PATH="$PATH:$HOME/.phpenv/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin:/path/to/elixir/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin"
