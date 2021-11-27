@@ -66,6 +66,7 @@ call plug#begin()
   Plug 'jwalton512/vim-blade', { 'for': 'php' }
 
   " === JavaScript ===
+  Plug 'jelera/vim-javascript-syntax', { 'for': ['js', 'jsx', 'vue'] }
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
   " Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
   Plug 'maxmellon/vim-jsx-pretty', { 'for': ['js', 'jsx', 'mdx'] }

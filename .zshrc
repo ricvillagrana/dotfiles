@@ -5,6 +5,16 @@ plugins=(
   git
 )
 
+function xtimes {
+    n=0
+    times=$1
+    shift
+    while [[ $n -lt $times ]]; do
+        $@
+        n=$((n+1))
+    done
+}
+
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -16,6 +26,7 @@ export NODE_OPTIONS='--max-old-space-size=512'
 
 # aliases
 alias v='nvim'
+alias r='rails'
 alias purevim='vim -u NONE'
 alias vimrc='nvim ~/dotfiles/.vimrc'
 alias erc='nvim ~/dotfiles/.zshrc'
@@ -40,6 +51,11 @@ alias cmatrix='cmatrix -BC blue'
 alias gg='git grep'
 alias glop='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
 alias gsum='git shortlog --summary --numbered'
+
+# Docker
+alias dcu='docker-compose up --remove-orphans'
+alias dcd='docker-compose down'
+alias dcr='docker-compose run'
 
 # Android Studio
 export ANDROID_HOME=~/Library/Android/sdk
@@ -66,19 +82,20 @@ export PATH="$PATH:/snap/bin"
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/usr/games"
 export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/usr/local/games"
 export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/games"
 export PATH="$PATH:/usr/local/Cellar/mongodb/4.0.3_1/bin"
 export PATH="$PATH:/usr/local/mysql/bin"
 export PATH="$PATH:/usr/local/opt/erlang@20/bin"
 export PATH="$PATH:/usr/local/opt/mysql@5.6/bin"
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/Library/Developer/CommandLineTools"
+export PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin"
 export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/emulator"
 export PATH="$PATH:$ANDROID_HOME/platforms"
 export PATH="$PATH:$ANDROID_HOME/build-tools"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:/usr/local/Cellar/gcc/11.2.0_3/bin/"
 
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
