@@ -24,6 +24,11 @@ set splitbelow
 " set mouse=a
 filetype off        " required
 
+" colorscheme sets
+set termguicolors
+set t_Co=256
+" set background=light
+
 " Auto install Plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -34,8 +39,20 @@ endif
 call plug#begin()
   " === THEMES ===
   Plug 'arcticicestudio/nord-vim'
+  Plug 'bluz71/vim-nightfly-guicolors'
+  Plug 'cocopon/iceberg.vim'
+  Plug 'glepnir/oceanic-material'
+  Plug 'jsit/toast.vim'
+  Plug 'morhetz/gruvbox'
+  Plug 'projekt0n/github-nvim-theme'
+
+  " === COLORSCHEMES ===
+  Plug 'drewtempelmeyer/palenight.vim'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'cocopon/iceberg.vim'
 
   " === Tools ===
+  Plug 'akinsho/bufferline.nvim'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
@@ -51,7 +68,6 @@ call plug#begin()
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/syntastic'
-  Plug 'SirVer/ultisnips'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
@@ -77,6 +93,7 @@ call plug#begin()
   " === Ruby / Ruby on Rails ===
   Plug 'ngmy/vim-rubocop', { 'for': 'rb' }
   Plug 'tpope/vim-rails', { 'for': 'rb' }
+  Plug 'thoughtbot/vim-rspec'
 
   " === Elixir / Phoenix ===
   Plug 'elixir-editors/vim-elixir', { 'for': 'xs' }
@@ -87,22 +104,29 @@ call plug#begin()
   " === Other files ===
   Plug 'cespare/vim-toml', { 'for': 'toml' }
   Plug 'mustache/vim-mustache-handlebars', { 'for': 'handlebars' }
+  Plug 'amadeus/vim-mjml', { 'for': 'mjml' }
+  Plug 'jparise/vim-graphql'
 call plug#end()
 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 let mapleader = ","
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
-nnoremap <Leader>g :Gblame<Esc>
+nnoremap <Leader>g :Git blame<Esc>
 " noremap <C-p> :FZF<CR>
 noremap <C-p> :Files<CR>
 noremap <C-s> :Rg<CR>
 nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-nmap <silent> <leader>bp <ESC>/binding.pry<CR>
+nmap <silent> <leader>bp <ESC>/binding.pry\\|debugger\\|byebug\\|console\..*<CR>
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 nmap <leader>c :term ++curwin<CR>
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
+nmap <leader>.r :! cargo run<CR>
+nmap <leader>.rt :! rspec<CR>
+nmap <leader>.rb :! bundle<CR>
+nmap <leader>.jn :! npm install<CR>
+nmap <leader>.jy :! yarn<CR>
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
@@ -112,6 +136,14 @@ nmap <C-i> :bnext<Esc>
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NERDTreeToggle<Enter>
 map <leader>m /=======\\|<<<<<<< .*\\|>>>>>>> .*<CR>
+map <leader>1 :Copilot enable<Enter> :Copilot status<Enter>
+map <leader>0 :Copilot disable<Enter> :Copilot status<Enter>
+
+" Custom commands
+command ThemeIcebergLight execute ':colorscheme iceberg | :set background=light'
+command ThemeGruvboxLight execute ':colorscheme gruvbox | :set background=light'
+command ThemeGruvboxDark  execute ':colorscheme gruvbox | :set background=dark'
+command ThemePalenight    execute ':colorscheme palenight | :set background=dark'
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -130,7 +162,10 @@ let g:nord_bold = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
-let g:airline_theme='nord'
+" let g:airline_theme='palenight'
+" colorscheme palenight
+colorscheme oceanic_material
+
 
 set statusline+=%{gutentags#statusline()}
 if has('nvim') || has('vim')
@@ -139,6 +174,9 @@ endif
 
 let g:neosnippet#enable_completed_snippet = 1
 let g:deoplete#enable_at_startup = 1
+
+" Automatically rebalance windows when vim is resized
+autocmd VimResized * :wincmd =
 
 " GitGutter
 let g:gitgutter_grep = 'rg'
@@ -153,11 +191,6 @@ let g:fzf_preview_window = 'right:50%'
 " React config
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<c-g>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " GrpahQL
 au BufNewFile,BufRead *.prisma setfiletype graphql
@@ -193,6 +226,7 @@ let g:blade_custom_directives = ['datetime', 'javascript']
 autocmd BufRead,BufNewFile   *.php set shiftwidth=4
 autocmd BufRead,BufNewFile   *.vue set shiftwidth=2
 autocmd BufRead,BufNewFile   *.js set shiftwidth=2
+autocmd BufRead,BufNewFile   *.rs set shiftwidth=2
 
 " Reset colors
 hi ColorColumn ctermbg=8
