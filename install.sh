@@ -58,7 +58,7 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.vim ~/.vim
 ln -s ~/dotfiles/.tmux ~/.tmux
-ln -s ~/dotfiles/.config ~/.config
+ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 
 # Install FZF for terminal completion
 $(brew --prefix)/opt/fzf/install
