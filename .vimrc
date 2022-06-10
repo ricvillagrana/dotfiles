@@ -24,11 +24,6 @@ set splitbelow
 " set mouse=a
 filetype off        " required
 
-" colorscheme sets
-set termguicolors
-set t_Co=256
-" set background=light
-
 " Auto install Plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -64,6 +59,7 @@ call plug#begin()
   Plug 'mattn/emmet-vim'
   Plug 'neomake/neomake'
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'ryanoasis/vim-devicons'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
@@ -123,7 +119,6 @@ nmap ]y <plug>(YoinkRotateForward)
 nmap <leader>c :term ++curwin<CR>
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>.r :! cargo run<CR>
-nmap <leader>.rt :! rspec<CR>
 nmap <leader>.rb :! bundle<CR>
 nmap <leader>.jn :! npm install<CR>
 nmap <leader>.jy :! yarn<CR>
@@ -138,6 +133,15 @@ map <leader>t :NERDTreeToggle<Enter>
 map <leader>m /=======\\|<<<<<<< .*\\|>>>>>>> .*<CR>
 map <leader>1 :Copilot enable<Enter> :Copilot status<Enter>
 map <leader>0 :Copilot disable<Enter> :Copilot status<Enter>
+
+" RSpec
+let g:rspec_command = "!bundle exec rspec --color {spec}"
+
+" RSpec.vim mappings
+map <Leader>sc :call RunCurrentSpecFile()<CR>
+map <Leader>sn :call RunNearestSpec()<CR>
+map <Leader>sl :call RunLastSpec()<CR>
+map <Leader>sa :call RunAllSpecs()<CR>
 
 " Custom commands
 command ThemeIcebergLight execute ':colorscheme iceberg | :set background=light'
@@ -163,9 +167,6 @@ let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
 " let g:airline_theme='palenight'
-" colorscheme palenight
-colorscheme oceanic_material
-
 
 set statusline+=%{gutentags#statusline()}
 if has('nvim') || has('vim')
@@ -211,6 +212,16 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" colorscheme sets
+set background=light
+set termguicolors
+set t_Co=256
+
+" colorscheme palenight
+" colorscheme oceanic_material
+" colorscheme iceberg
+colorscheme gruvbox
 
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
