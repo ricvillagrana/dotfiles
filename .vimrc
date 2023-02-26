@@ -1,7 +1,7 @@
 set number	    " Show line numbers
 " set linebreak	    " Break lines at word (requires Wrap lines)
 " set showbreak=+++   " Wrap-broken line prefix
-set colorcolumn=80  " 80
+set colorcolumn=110 " 80
 set smartcase	    " Enable smart-case search
 set hlsearch        " Highlight search
 set incsearch	    " Searches for strings incrementally
@@ -35,6 +35,7 @@ call plug#begin()
   " === THEMES ===
   Plug 'arcticicestudio/nord-vim'
   Plug 'bluz71/vim-nightfly-guicolors'
+  Plug 'catppuccin/nvim', {'as': 'catppuccin'}
   Plug 'cocopon/iceberg.vim'
   Plug 'glepnir/oceanic-material'
   Plug 'jsit/toast.vim'
@@ -47,19 +48,22 @@ call plug#begin()
   Plug 'cocopon/iceberg.vim'
 
   " === Tools ===
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
   Plug 'akinsho/bufferline.nvim'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
   Plug 'ervandew/supertab'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'junegunn/fzf'
-  Plug 'junegunn/fzf.vim'
+  " Plug 'junegunn/fzf'
+  " Plug 'junegunn/fzf.vim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'mattn/emmet-vim'
   Plug 'neomake/neomake'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'ruanyl/vim-fixmyjs'
   Plug 'ryanoasis/vim-devicons'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
@@ -76,6 +80,7 @@ call plug#begin()
   " === Laravel PHP ===
   Plug 'StanAngeloff/php.vim', { 'for': 'php' }
   Plug 'jwalton512/vim-blade', { 'for': 'php' }
+  Plug 'joonty/vim-xdebug', { 'for': 'php' }
 
   " === JavaScript ===
   Plug 'jelera/vim-javascript-syntax', { 'for': ['js', 'jsx', 'vue'] }
@@ -104,16 +109,31 @@ call plug#begin()
   Plug 'jparise/vim-graphql'
 call plug#end()
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+" telescope.nvim
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-j>"] = require('telescope.actions').move_selection_next,
+        ["<C-k>"] = require('telescope.actions').move_selection_previous,
+      },
+    },
+  },
+}
+EOF
+
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-s> <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 let mapleader = ","
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Git blame<Esc>
-" noremap <C-p> :FZF<CR>
-noremap <C-p> :Files<CR>
-noremap <C-s> :Rg<CR>
+
 nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-nmap <silent> <leader>bp <ESC>/binding.pry\\|debugger\\|byebug\\|console\..*<CR>
+nmap <silent> <leader>bp <ESC>/binding.pry\\|binding.remote_pry\\|debugger\\|byebug\\|console\..*<CR>
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 nmap <leader>c :term ++curwin<CR>
@@ -128,6 +148,7 @@ nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
 nmap <C-u> :bprevious<Esc>
 nmap <C-i> :bnext<Esc>
+nmap <C-o> :bnext<Esc>
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NERDTreeToggle<Enter>
 map <leader>m /=======\\|<<<<<<< .*\\|>>>>>>> .*<CR>
@@ -144,10 +165,18 @@ map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
 
 " Custom commands
-command ThemeIcebergLight execute ':colorscheme iceberg | :set background=light'
-command ThemeGruvboxLight execute ':colorscheme gruvbox | :set background=light'
-command ThemeGruvboxDark  execute ':colorscheme gruvbox | :set background=dark'
-command ThemePalenight    execute ':colorscheme palenight | :set background=dark'
+command ThemeIcebergLight        execute ':colorscheme iceberg | :set background=light'
+command ThemeGruvboxLight        execute ':colorscheme gruvbox | :set background=light'
+command ThemeGruvboxDark         execute ':colorscheme gruvbox | :set background=dark'
+command ThemePalenight           execute ':colorscheme palenight | :set background=dark'
+command ThemePaperColor          execute ':colorscheme PaperColor | :set background=dark'
+command ThemePaperColorLight     execute ':colorscheme PaperColor | :set background=light'
+command ThemeCatppuccinMacchiato execute 'let g:catppuccin_flavour = "macchiato" | :colorscheme catppuccin'
+command ThemeCatppuccinLatte     execute 'let g:catppuccin_flavour = "latte" | :colorscheme catppuccin'
+command ThemeCatppuccinFrappe    execute 'let g:catppuccin_flavour = "frappe" | :colorscheme catppuccin'
+command ThemeCatppuccinMocha     execute 'let g:catppuccin_flavour = "mocha" | :colorscheme catppuccin'
+
+command LangPHP                  execute ':set filetype=php | autocmd BufRead,BufNewFile *.php set shiftwidth=4'
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -214,23 +243,26 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " colorscheme sets
-set background=light
+" set background=light
 set termguicolors
 set t_Co=256
 
-" colorscheme palenight
+colorscheme palenight
 " colorscheme oceanic_material
 " colorscheme iceberg
-colorscheme gruvbox
+" colorscheme gruvbox
+" colorscheme papercolor
+" colorscheme catppuccin
 
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
 let g:ale_fixers = { 'javascript': ['eslint'], 'jsx': ['eslint'], 'js': ['eslint'], 'scss': ['prettier'] }
 let g:ale_fix_on_save = 1
+let g:fixmyjs_engine = 'eslint'
 
 " Emmet
 let g:user_emmet_install_global = 1
-let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_leader_key='<C-Z>' " CTRL-Z => ,
 
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']

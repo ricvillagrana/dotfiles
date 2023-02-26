@@ -38,12 +38,17 @@ export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@3/lib/pkgconfig"
 
+# Docker
+export DOCKER_BUILDKIT=0
+export COMPOSE_DOCKER_CLI_BUILD=0
+
 # ENV
 # export NODE_OPTIONS='--max-old-space-size=512'
 export NODE_OPTIONS=--max_old_space_size=4096
 export EDITOR=nvim
 
 # aliases
+alias gcmsg='git commit -S -m'
 alias v='nvim'
 alias r='rails'
 alias purevim='vim -u NONE'
@@ -79,6 +84,12 @@ alias dcr='docker-compose run'
 
 # Rails
 alias rspec='bundle exec rspec --color'
+alias rtest='bundle exec rails test --verbose'
+
+# NPX
+alias qr='npx qrip'
+alias echo-big='npx figlet-cli'
+alias notify-when-done='npx okimdone'
 
 # Android Studio
 export ANDROID_HOME=~/Library/Android/sdk
