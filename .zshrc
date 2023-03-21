@@ -46,6 +46,7 @@ export COMPOSE_DOCKER_CLI_BUILD=0
 # export NODE_OPTIONS='--max-old-space-size=512'
 export NODE_OPTIONS=--max_old_space_size=4096
 export EDITOR=nvim
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # aliases
 alias gcmsg='git commit -S -m'
@@ -56,9 +57,12 @@ alias vimrc='nvim ~/dotfiles/.vimrc'
 alias erc='nvim ~/dotfiles/.zshrc'
 alias src='source ~/.zshrc'
 alias art='php artisan'
+alias sail='./vendor/bin/sail'
 alias c='clear'
 alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
 alias clean-node-modules='find . -name "node_modules" -type d -prune -print | xargs du -chs'
+alias reload='source ~/.zshrc && cd $(pwd) && echo "Reloaded"'
+alias pn='pnpm'
 
 alias top-mem='htop --sort-key=PERCENT_MEM'
 alias top-cpu='htop --sort-key=PERCENT_CPU'
@@ -174,3 +178,11 @@ if [ -f /Users/ricardo/.tnsrc ]; then
     source /Users/ricardo/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+# pnpm
+export PNPM_HOME="/Users/ricardovillagrana/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

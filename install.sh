@@ -1,5 +1,5 @@
 if [ "$(uname)" == "Darwin" ]; then
-  brew install zsh fzf ripgrep nodejs bzip2 oniguruma libzip
+  brew install zsh fzf ripgrep nodejs bzip2 oniguruma libzip universal-ctags
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   sudo apt update
   sudo apt install zsh fzf ripgrep nodejs
@@ -59,6 +59,9 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.vim ~/.vim
 ln -s ~/dotfiles/.tmux ~/.tmux
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
+
+chmod u+rwx ~/.cache/gutentags
+sudo chown -R $USER:$USER ~/.cache/gutentags
 
 # Install FZF for terminal completion
 $(brew --prefix)/opt/fzf/install

@@ -1,3 +1,7 @@
+" Ricardo Villagrana's vimrc
+" =========================
+" Check: onInstall
+
 set number	    " Show line numbers
 " set linebreak	    " Break lines at word (requires Wrap lines)
 " set showbreak=+++   " Wrap-broken line prefix
@@ -48,26 +52,26 @@ call plug#begin()
   Plug 'cocopon/iceberg.vim'
 
   " === Tools ===
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
-  Plug 'akinsho/bufferline.nvim'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
+  Plug 'akinsho/bufferline.nvim'
   Plug 'ervandew/supertab'
+  Plug 'eslint/eslint'
   Plug 'jiangmiao/auto-pairs'
-  " Plug 'junegunn/fzf'
-  " Plug 'junegunn/fzf.vim'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'mattn/emmet-vim'
   Plug 'neomake/neomake'
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'ruanyl/vim-fixmyjs'
   Plug 'ryanoasis/vim-devicons'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
-  Plug 'scrooloose/syntastic'
+  " Plug 'scrooloose/syntastic'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
@@ -133,7 +137,9 @@ nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Git blame<Esc>
 
 nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-nmap <silent> <leader>bp <ESC>/binding.pry\\|binding.remote_pry\\|debugger\\|byebug\\|console\..*<CR>
+nmap <silent> <leader>bp <ESC>/binding.pry\\|binding.remote_pry\\|debugger\\|byebug\\|console\..*\\|dd(.*)<CR>
+nmap <leader>e :lua vim.lsp.buf.format()<CR>
+
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 nmap <leader>c :term ++curwin<CR>
@@ -166,6 +172,7 @@ map <Leader>sa :call RunAllSpecs()<CR>
 
 " Custom commands
 command ThemeIcebergLight        execute ':colorscheme iceberg | :set background=light'
+command ThemeIcebergDark         execute ':colorscheme iceberg | :set background=dark'
 command ThemeGruvboxLight        execute ':colorscheme gruvbox | :set background=light'
 command ThemeGruvboxDark         execute ':colorscheme gruvbox | :set background=dark'
 command ThemePalenight           execute ':colorscheme palenight | :set background=dark'
@@ -176,7 +183,8 @@ command ThemeCatppuccinLatte     execute 'let g:catppuccin_flavour = "latte" | :
 command ThemeCatppuccinFrappe    execute 'let g:catppuccin_flavour = "frappe" | :colorscheme catppuccin'
 command ThemeCatppuccinMocha     execute 'let g:catppuccin_flavour = "mocha" | :colorscheme catppuccin'
 
-command LangPHP                  execute ':set filetype=php | autocmd BufRead,BufNewFile *.php set shiftwidth=4'
+command LangPHP execute ':set filetype=php | :set shiftwidth=4 | :set softtabstop=4 | setlocal autoindent cindent'
+autocmd VimEnter *.php LangPHP
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -195,9 +203,13 @@ let g:nord_bold = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
-" let g:airline_theme='palenight'
 
+" onInstall: change gutentags_ctags_executable to the universal-ctags path
 set statusline+=%{gutentags#statusline()}
+let g:gutentags_ctags_executable = '/usr/local/Cellar/universal-ctags/p6.0.20230319.0/bin/ctags' " '/usr/bin/ctags'
+let g:gutentags_cache_dir = '~/.cache/gutentags'
+let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*"]
+
 if has('nvim') || has('vim')
   call neomake#configure#automake('nrwi', 500)
 endif
@@ -241,16 +253,18 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_theme='gruvbox'
+hi airline_tabfill ctermbg=NONE guibg=NONE
 
 " colorscheme sets
 " set background=light
 set termguicolors
 set t_Co=256
 
-colorscheme palenight
+" colorscheme palenight
 " colorscheme oceanic_material
 " colorscheme iceberg
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme papercolor
 " colorscheme catppuccin
 
@@ -259,6 +273,33 @@ let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
 let g:ale_fixers = { 'javascript': ['eslint'], 'jsx': ['eslint'], 'js': ['eslint'], 'scss': ['prettier'] }
 let g:ale_fix_on_save = 1
 let g:fixmyjs_engine = 'eslint'
+lua << EOF
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.formatting.prettier,
+  },
+})
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+require("null-ls").setup({
+    -- you can reuse a shared lspconfig on_attach callback here
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                    vim.lsp.buf.format({ bufnr = bufnr })
+                end,
+            })
+        end
+    end,
+})
+EOF
 
 " Emmet
 let g:user_emmet_install_global = 1
@@ -274,7 +315,6 @@ autocmd BufRead,BufNewFile   *.rs set shiftwidth=2
 " Reset colors
 hi ColorColumn ctermbg=8
 hi LineNr ctermfg=239
-hi airline_tabfill ctermbg=NONE guibg=NONE
 hi Comment ctermfg=242
 hi VertSplit ctermfg=darkgray ctermbg=NONE cterm=NONE
 hi Visual ctermbg=238 gui=NONE
