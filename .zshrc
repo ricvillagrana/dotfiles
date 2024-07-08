@@ -1,5 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
+# ZSH_THEME="avit"
+# ZSH_THEME="clean"
+# ZSH_THEME="refined"
 
 plugins=(
   git
@@ -25,6 +28,21 @@ function xtimes {
     done
 }
 
+function debug_rb {
+  git grep -n 'binding.pry' | awk -F':' '{print "File: " $1 ", Line: " $2, " => " $3}'
+  git grep -n 'binding.irb' | awk -F':' '{print "File: " $1 ", Line: " $2, " => " $3}'
+  git grep -n 'byebug' | awk -F':' '{print "File: " $1 ", Line: " $2, " => " $3}'
+}
+
+function search {
+  git grep -n $@ | awk -F':' '{print "File: " $1 ", Line: " $2, " => " $3}'
+}
+
+function timeit {
+  curl -s -w "Connect: \t\t%{time_connect} \nStart Transfer: \t%{time_starttransfer} \nTotal Time: \t\t%{time_total} seconds\n" -o /dev/null $@
+  printf '\e[3J'
+}
+
 source $ZSH/oh-my-zsh.sh
 
 # Change autosuggest text color
@@ -32,6 +50,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 CC=/usr/local/Cellar/gcc/11.2.0_3/bin/gcc-11
 CXX=/usr/local/Cellar/gcc/11.2.0_3/bin/g++-11
+
+# OpenAI
+export OPENAI_API_KEY=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
 
 # OpenSSL
 export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
@@ -47,22 +68,27 @@ export COMPOSE_DOCKER_CLI_BUILD=0
 export NODE_OPTIONS=--max_old_space_size=4096
 export EDITOR=nvim
 export HOMEBREW_NO_AUTO_UPDATE=1
+export PYTHON=/usr/bin/python3
+export THOR_MERGE=nvim
 
 # aliases
+alias db:fresh='rails db:reset db:migrate db:seed db:seed:development'
+alias db:reset='rails db:reset db:migrate db:seed db:seed:development'
+alias db:seeds='rails db:seed db:seed:development'
 alias gcmsg='git commit -S -m'
+alias gcom='git commit -S'
 alias v='nvim'
 alias r='rails'
+alias j='jekyll'
 alias purevim='vim -u NONE'
 alias vimrc='nvim ~/dotfiles/.vimrc'
 alias erc='nvim ~/dotfiles/.zshrc'
-alias src='source ~/.zshrc'
-alias art='php artisan'
-alias sail='./vendor/bin/sail'
+alias src='source ~/dotfiles/.zshrc'
 alias c='clear'
-alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
 alias clean-node-modules='find . -name "node_modules" -type d -prune -print | xargs du -chs'
-alias reload='source ~/.zshrc && cd $(pwd) && echo "Reloaded"'
+alias reload='echo "🔄 Reloading..." && source ~/dotfiles/.zshrc && cd $(pwd) && echo "✅ Reloaded!"'
 alias pn='pnpm'
+alias rbenv-update='git -C ~/.rbenv/plugins/ruby-build pull'
 
 alias top-mem='htop --sort-key=PERCENT_MEM'
 alias top-cpu='htop --sort-key=PERCENT_CPU'
@@ -79,7 +105,12 @@ alias cmatrix='cmatrix -BC blue'
 alias gg='git grep'
 alias glop='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
 alias gsum='git shortlog --summary --numbered'
-alias wu='java -jar ~/Documents/WarUniverse*.jar'
+alias glg1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
+alias glg2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'"
+alias glg="glg1"
+alias brew='arch -arm64 brew'
+alias waruniverse='java -jar ~/Documents/WarUniverse/WarUniverse*.jar'
+alias wu='waruniverse'
 
 # Docker
 alias dcu='docker-compose up --remove-orphans'
@@ -87,8 +118,21 @@ alias dcd='docker-compose down'
 alias dcr='docker-compose run'
 
 # Rails
-alias rspec='bundle exec rspec --color'
-alias rtest='bundle exec rails test --verbose'
+alias rspecl='bin/bundle exec rspec --color'
+alias rspec='clear && bin/bundle exec rspec --color --format documentation'
+alias rspecf='clear && bin/bundle exec rspec --color --format documentation --fail-fast'
+alias rspecp='bin/bundle exec rspec --color --format documentation --profile'
+alias rspecfp='bin/bundle exec rspec --color --format documentation --fail-fast --profile'
+alias rspecd='bin/bundle exec rspec --color --format documentation --profile --format documentation --fail-fast'
+alias rtest='bin/bundle exec rails test --verbose'
+alias be='bin/bundle exec'
+
+# PHP
+alias art='php artisan'
+alias pest='clear && ./vendor/bin/pest'
+alias sail='./vendor/bin/sail'
+alias wp-create='git clone https://github.com/WordPress/wordpress-develop '
+alias wp='php ./wp-cli.phar'
 
 # NPX
 alias qr='npx qrip'
@@ -120,14 +164,12 @@ export PATH="$PATH:/snap/bin"
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/usr/games"
 export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/local/opt/postgresql@15/bin/"
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/usr/local/games"
 export PATH="$PATH:/usr/local/opt/openssl@1.1/bin"
 export PATH="$PATH:/usr/local/opt/openssl@3/bin"
-# export PATH="$PATH:/usr/local/Cellar/mongodb/4.0.3_1/bin"
-# export PATH="$PATH:/usr/local/mysql/bin"
-# export PATH="$PATH:/usr/local/opt/erlang@20/bin"
-# export PATH="$PATH:/usr/local/opt/mysql@5.6/bin"
+export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:/Library/Developer/CommandLineTools"
 export PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin"
 export PATH="$PATH:$ANDROID_HOME/tools"
@@ -139,6 +181,10 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
+# Homebrew
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
+eval "$(rbenv init -)"
 
 ###-tns-completion-start-###
 if [ -f /Users/ricardo/.tnsrc ]; then

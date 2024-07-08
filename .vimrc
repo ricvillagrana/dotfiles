@@ -4,8 +4,8 @@
 
 set number	    " Show line numbers
 " set linebreak	    " Break lines at word (requires Wrap lines)
-" set showbreak=+++   " Wrap-broken line prefix
-set colorcolumn=110 " 80
+" set showbreak=+++ " Wrap-broken line prefix
+set colorcolumn=120 " 80
 set smartcase	    " Enable smart-case search
 set hlsearch        " Highlight search
 set incsearch	    " Searches for strings incrementally
@@ -45,11 +45,21 @@ call plug#begin()
   Plug 'jsit/toast.vim'
   Plug 'morhetz/gruvbox'
   Plug 'projekt0n/github-nvim-theme'
+  " New
+  Plug 'rose-pine/neovim', {'as': 'rose-pine'}
+  Plug 'EdenEast/nightfox.nvim'
 
   " === COLORSCHEMES ===
   Plug 'drewtempelmeyer/palenight.vim'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'cocopon/iceberg.vim'
+  Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
+  Plug 'rebelot/kanagawa.nvim'
+
+  " === GPT ===
+  Plug 'github/copilot.vim'
+  " Plug 'MunifTanjim/nui.nvim'
+  " Plug 'dpayne/CodeGPT.nvim'
 
   " === Tools ===
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -59,6 +69,8 @@ call plug#begin()
   Plug 'ervandew/supertab'
   Plug 'eslint/eslint'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'mattn/emmet-vim'
@@ -81,6 +93,9 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'zivyangll/git-blame.vim'
 
+  " === Tailwind CSS ===
+  Plug 'laytan/tailwind-sorter.nvim', { 'do': 'cd formatter && npm ci && npm run build' }
+
   " === Laravel PHP ===
   Plug 'StanAngeloff/php.vim', { 'for': 'php' }
   Plug 'jwalton512/vim-blade', { 'for': 'php' }
@@ -89,11 +104,11 @@ call plug#begin()
   " === JavaScript ===
   Plug 'jelera/vim-javascript-syntax', { 'for': ['js', 'jsx', 'vue'] }
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-  " Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
-  Plug 'maxmellon/vim-jsx-pretty', { 'for': ['js', 'jsx', 'mdx'] }
-  Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx', 'mdx'] }
-  Plug 'posva/vim-vue', { 'for': 'vue' }
-  " Plug 'yardnsm/vim-import-cost', { 'do': 'npm install', 'for': ['js', 'jsx', 'vue', 'ts'] }
+  Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
+  Plug 'maxmellon/vim-jsx-pretty', { 'for': ['js', 'jsx', 'mdx', 'vue'] }
+  Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx', 'mdx', 'vue'] }
+  Plug 'posva/vim-vue', { 'for': ['js', 'vue', 'jsx'] }
+  Plug 'yardnsm/vim-import-cost', { 'do': 'npm install', 'for': ['js', 'jsx', 'vue', 'ts'] }
 
   " === Ruby / Ruby on Rails ===
   Plug 'ngmy/vim-rubocop', { 'for': 'rb' }
@@ -115,6 +130,7 @@ call plug#end()
 
 " telescope.nvim
 lua << EOF
+require('tailwind-sorter').setup()
 require('telescope').setup{
   defaults = {
     mappings = {
@@ -127,17 +143,27 @@ require('telescope').setup{
 }
 EOF
 
-nnoremap <C-p> <cmd>Telescope find_files<cr>
-nnoremap <C-s> <cmd>Telescope live_grep<cr>
+let mapleader = ","
+
+nnoremap <leader>fp <cmd>Telescope find_files<cr>
+nnoremap <leader>fs <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-let mapleader = ","
 nnoremap <Leader>i :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>g :Git blame<Esc>
 
+" noremap <C-p> :FZF<CR>
+noremap <C-p> :Files<CR>
+noremap <C-s> :Rg<CR>
+noremap <C-t> :tabedit %<CR>
+
+nnoremap <C-k> :m .-2<CR>==
+nnoremap <C-j> :m .+1<CR>==
+vnoremap <C-k> :m '<-2<CR>gv=gv
+vnoremap <C-j> :m '>+1<CR>gv=gv
+
 nmap <silent> <leader>mc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-nmap <silent> <leader>bp <ESC>/binding.pry\\|binding.remote_pry\\|debugger\\|byebug\\|console\..*\\|dd(.*)<CR>
+nmap <silent> <leader>bp <ESC>/binding.*\\|debugger\\|byebug\\|console\..*\\|dd(.*)\\|var_dump(.*)\\|var_dump<CR>
 nmap <leader>e :lua vim.lsp.buf.format()<CR>
 
 nmap [y <plug>(YoinkRotateBack)
@@ -171,6 +197,7 @@ map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
 
 " Custom commands
+command ThemeNightfly            execute ':colorscheme nightfly | :set background=dark'
 command ThemeIcebergLight        execute ':colorscheme iceberg | :set background=light'
 command ThemeIcebergDark         execute ':colorscheme iceberg | :set background=dark'
 command ThemeGruvboxLight        execute ':colorscheme gruvbox | :set background=light'
@@ -182,9 +209,7 @@ command ThemeCatppuccinMacchiato execute 'let g:catppuccin_flavour = "macchiato"
 command ThemeCatppuccinLatte     execute 'let g:catppuccin_flavour = "latte" | :colorscheme catppuccin'
 command ThemeCatppuccinFrappe    execute 'let g:catppuccin_flavour = "frappe" | :colorscheme catppuccin'
 command ThemeCatppuccinMocha     execute 'let g:catppuccin_flavour = "mocha" | :colorscheme catppuccin'
-
-command LangPHP execute ':set filetype=php | :set shiftwidth=4 | :set softtabstop=4 | setlocal autoindent cindent'
-autocmd VimEnter *.php LangPHP
+command ThemeKanagawa            execute ':colorscheme kanagawa'
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -206,7 +231,8 @@ let g:nord_underline = 1
 
 " onInstall: change gutentags_ctags_executable to the universal-ctags path
 set statusline+=%{gutentags#statusline()}
-let g:gutentags_ctags_executable = '/usr/local/Cellar/universal-ctags/p6.0.20230319.0/bin/ctags' " '/usr/bin/ctags'
+" let g:gutentags_ctags_executable = '/usr/local/Cellar/universal-ctags/p6.0.20230319.0/bin/ctags' " '/usr/bin/ctags'
+let g:gutentags_ctags_executable = '/usr/local/bin/ctags'
 let g:gutentags_cache_dir = '~/.cache/gutentags'
 let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*"]
 
@@ -264,9 +290,12 @@ set t_Co=256
 " colorscheme palenight
 " colorscheme oceanic_material
 " colorscheme iceberg
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme papercolor
 " colorscheme catppuccin
+" colorscheme nightfly
+" colorscheme catppuccin-mocha
+colorscheme kanagawa
 
 " ESLint
 let g:ale_linters = { 'javascript': ['eslint'], 'jsx': ['eslint'] }
@@ -301,16 +330,57 @@ require("null-ls").setup({
 })
 EOF
 
+" Vue
+function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
+  let ft=toupper(a:filetype)
+  let group='textGroup'.ft
+  if exists('b:current_syntax')
+    let s:current_syntax=b:current_syntax
+    " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
+    " do nothing if b:current_syntax is defined.
+    unlet b:current_syntax
+  endif
+  execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
+  try
+    execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
+  catch
+  endtry
+  if exists('s:current_syntax')
+    let b:current_syntax=s:current_syntax
+  else
+    unlet b:current_syntax
+  endif
+  execute 'syntax region textSnip'.ft.'
+  \ matchgroup='.a:textSnipHl.'
+  \ keepend
+  \ start="'.a:start.'" end="'.a:end.'"
+  \ contains=@'.group
+endfunction
+
+autocmd BufNewFile,BufRead *.vue call TextEnableCodeSnip('javascript' ,'<script>' ,'</script>', 'SpecialComment')
+
 " Emmet
 let g:user_emmet_install_global = 1
 let g:user_emmet_leader_key='<C-Z>' " CTRL-Z => ,
 
 " PHP Blade Laravel
 let g:blade_custom_directives = ['datetime', 'javascript']
-autocmd BufRead,BufNewFile   *.php set shiftwidth=4
 autocmd BufRead,BufNewFile   *.vue set shiftwidth=2
 autocmd BufRead,BufNewFile   *.js set shiftwidth=2
 autocmd BufRead,BufNewFile   *.rs set shiftwidth=2
+autocmd BufRead,BufNewFile   *.php set shiftwidth=4
+
+autocmd BufRead,BufNewFile *.php setlocal omnifunc=phpcomplete#CompletePHP
+autocmd BufRead,BufNewFile *.php setlocal autoindent
+autocmd BufRead,BufNewFile *.php setlocal shiftwidth=4 softtabstop=4
+autocmd BufRead,BufNewFile *.php setlocal tabstop=4
+autocmd BufRead,BufNewFile *.php setlocal formatoptions=crqn1
+autocmd BufRead,BufNewFile *.php setlocal cinoptions=:0,g0,(0,W4s
+autocmd BufRead,BufNewFile *.php setlocal comments=s1:/*,mb:*,ex:*/,://,:#
+autocmd BufRead,BufNewFile *.php setlocal foldmethod=indent
+autocmd BufRead,BufNewFile *.php setlocal foldnestmax=10
+autocmd BufRead,BufNewFile *.php setlocal noexpandtab
+autocmd BufRead,BufNewFile *.php setlocal smarttab
 
 " Reset colors
 hi ColorColumn ctermbg=8

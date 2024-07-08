@@ -1,3 +1,4 @@
 tags*
 .vim/plugged*
 .tmux/resurrect/*
+.DS_Store
