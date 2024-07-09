@@ -11,9 +11,7 @@ plugins=(
   rake
   rbenv
   ruby
-  zsh-syntax-highlighting
   zsh-autosuggestions
-  auto-notify
   web-search # ddg something
   jsontools # json | pp_json
 )
