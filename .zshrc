@@ -6,14 +6,16 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  bundler
+  # bundler
   dotenv
-  rake
-  rbenv
-  ruby
+  # rake
+  # rbenv
+  # ruby
+  zsh-syntax-highlighting
   zsh-autosuggestions
-  web-search # ddg something
-  jsontools # json | pp_json
+  auto-notify
+  # web-search # ddg something
+  # jsontools # json | pp_json
 )
 
 function xtimes {
@@ -49,9 +51,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 CC=/usr/local/Cellar/gcc/11.2.0_3/bin/gcc-11
 CXX=/usr/local/Cellar/gcc/11.2.0_3/bin/g++-11
 
-# OpenAI
-export OPENAI_API_KEY=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
-
 # OpenSSL
 export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
@@ -83,7 +82,7 @@ alias vimrc='nvim ~/dotfiles/.vimrc'
 alias erc='nvim ~/dotfiles/.zshrc'
 alias src='source ~/dotfiles/.zshrc'
 alias c='clear'
-alias clean-node-modules='find . -name "node_modules" -type d -prune -print | xargs du -chs'
+# alias clean-node-modules='find . -name "node_modules" -type d -prune -print | xargs du -chs'
 alias reload='echo "🔄 Reloading..." && source ~/dotfiles/.zshrc && cd $(pwd) && echo "✅ Reloaded!"'
 alias pn='pnpm'
 alias rbenv-update='git -C ~/.rbenv/plugins/ruby-build pull'
@@ -178,11 +177,9 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 # Homebrew
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
-eval "$(rbenv init -)"
 
 ###-tns-completion-start-###
 if [ -f /Users/ricardo/.tnsrc ]; then
@@ -230,3 +227,15 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# History
+# don't put duplicate lines or lines starting with space in the  history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+# shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=200000
