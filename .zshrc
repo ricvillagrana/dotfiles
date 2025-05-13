@@ -65,11 +65,11 @@ export COMPOSE_DOCKER_CLI_BUILD=0
 export NODE_OPTIONS=--max_old_space_size=4096
 export EDITOR=nvim
 export HOMEBREW_NO_AUTO_UPDATE=1
-export PYTHON=/usr/bin/python3
+export PYTHON=/usr/local/bin/python3
 export THOR_MERGE=nvim
 
 # aliases
-alias db:fresh='rails db:reset db:migrate db:seed db:seed:development'
+alias db:fresh='rails db:reset db:migrate db:seed'
 alias db:reset='rails db:reset db:migrate db:seed db:seed:development'
 alias db:seeds='rails db:seed db:seed:development'
 alias gcmsg='git commit -S -m'
@@ -136,6 +136,10 @@ alias qr='npx qrip'
 alias echo-big='npx figlet-cli'
 alias notify-when-done='npx okimdone'
 
+# Python
+#alias python='python3'
+#alias pip='pip3'
+
 # Android Studio
 export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_SDK_ROOT=$ANDROID_HOME
@@ -146,15 +150,18 @@ if [ "$TERM" = "xterm" ]; then
 fi
 stty -ixon
 export PATH="$PATH:$HOME"
-export PATH="$PATH:$HOME/.cargo/bin"
+#export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.composer/vendor/bin:/opt/android-studio/bin"
 export PATH="$PATH:$HOME/.phpenv/bin"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin:/path/to/elixir/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin"
+#export PATH="$PATH:$HOME/.local/lib/python2.7/site-packages/pip:/opt/mssql-tools/bin"
 export PATH="$PATH:$HOME/.vimpkg/bin"
 export PATH="$PATH:$HOME/.phpbrew/bashrc"
+export PATH="$PATH:$HOME/.gvm/scripts/gvm"
+export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/Library/Python/3.6/bin"
+export PATH="$PATH:$PYTHON/bin"
 export PATH="$PATH:/bin"
 export PATH="$PATH:/sbin"
 export PATH="$PATH:/snap/bin"

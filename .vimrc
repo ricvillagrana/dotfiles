@@ -26,7 +26,7 @@ set nofoldenable      " ... but have folds open by default<Paste>
 set nocompatible    " be improved, required
 set splitright
 set splitbelow
-" set mouse=a
+ set mouse= " a: enable mouse support
 filetype off        " required
 
 " Auto install Plug
@@ -65,7 +65,9 @@ call plug#begin()
   Plug 'ludovicchabant/vim-gutentags' " Git tags
   Plug 'mattn/emmet-vim' " Emmet
   Plug 'nvim-lua/plenary.nvim' " Telescope dependency
-  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' } " Fuzzy finder
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+  Plug 'junegunn/fzf.vim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' } " Fuzzy finder
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' } " Highlighting
   Plug 'ryanoasis/vim-devicons' " REMOVE
   Plug 'scrooloose/nerdcommenter'
@@ -99,6 +101,10 @@ call plug#begin()
   Plug 'tpope/vim-rails', { 'for': 'rb' }
   Plug 'thoughtbot/vim-rspec', { 'for': 'rb' }
 
+  " === Python ===
+  Plug 'nvie/vim-flake8', { 'for': 'python' }
+  Plug 'microsoft/pyright', { 'for': 'python' }
+
   " === Elixir / Phoenix ===
   Plug 'elixir-editors/vim-elixir', { 'for': 'xs' }
 
@@ -128,6 +134,11 @@ require('telescope').setup{
     },
   },
 }
+require('nvim-treesitter.configs').setup {
+   indent = {
+     enable = true,
+   },
+ }
 EOF
 
 let mapleader = ","
@@ -141,6 +152,7 @@ noremap <C-p> :Telescope find_files<CR>
 noremap <C-s> :Telescope live_grep<CR>
 noremap <C-B> :Telescope buffers<CR>
 noremap <C-t> :tabedit %<CR>
+noremap <C-c> :Rg<CR>
 
 nnoremap <C-k> :m .-2<CR>==
 nnoremap <C-j> :m .+1<CR>==
@@ -162,6 +174,7 @@ nmap <C-l> <C-W>l
 nmap <C-u> :bprevious<Esc>
 nmap <C-i> :bnext<Esc>
 nmap <C-o> :bnext<Esc>
+nmap <C-x> :BufferClose<CR>
 
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NvimTreeToggle<Enter>
@@ -223,8 +236,9 @@ let g:airline_theme='jet'
 hi airline_tabfill ctermbg=NONE guibg=NONE
 
 " Emmet
+autocmd FileType html,css,erb,jsx,js,ejs EmmetInstall
 let g:user_emmet_install_global = 1
-let g:user_emmet_leader_key='<C-Z>' " CTRL-Z => ,
+let g:user_emmet_leader_key='<C-Z>' " CTRL-Z then ,
 
 " colorscheme sets
 " set background=light
