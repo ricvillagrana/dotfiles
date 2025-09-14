@@ -1,5 +1,5 @@
 if [ "$(uname)" == "Darwin" ]; then
-  brew install zsh fzf ripgrep nodejs bzip2 oniguruma libzip universal-ctags
+  brew install zsh fzf ripgrep nodejs bzip2 oniguruma libzip universal-ctags bat
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   sudo apt update
   sudo apt install zsh fzf ripgrep nodejs
@@ -51,12 +51,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 mkdir -p ~/.config/nvim
 
 # Here should be all the necessary commands to install this dotfiles
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.vimrc ~/.config/nvim/init.vim
-ln -s ~/dotfiles/UltiSnips ~/.config/nvim/UltiSnips
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/.vim ~/.vim
 ln -s ~/dotfiles/.tmux ~/.tmux
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 

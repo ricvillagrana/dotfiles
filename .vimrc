@@ -43,6 +43,7 @@ call plug#begin()
   Plug 'rebelot/kanagawa.nvim'
   Plug 'projekt0n/github-nvim-theme'
   Plug 'morhetz/gruvbox'
+  Plug 'neanias/everforest-nvim', { 'branch': 'main' }
 
   " === GPT ===
   Plug 'github/copilot.vim'
@@ -57,6 +58,7 @@ call plug#begin()
   Plug 'nvim-lualine/lualine.nvim' " Statusline
   Plug 'nvim-tree/nvim-tree.lua'
   Plug 'nvim-tree/nvim-web-devicons' " Icons
+  Plug 'folke/snacks.nvim'
 
   " === Functionality ===
   Plug 'Yggdroot/indentLine' " Indent lines
@@ -170,6 +172,7 @@ nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
+nmap <S-k> <C-W>k
 " Rotate buffer using current pane
 nmap <C-u> :bprevious<Esc>
 nmap <C-i> :bnext<Esc>
@@ -179,6 +182,7 @@ nmap <C-x> :BufferClose<CR>
 map <leader> <Plug>(easymotion-prefix)
 map <leader>t :NvimTreeToggle<Enter>
 map <leader>s :NvimTreeFindFile<Enter>
+map <leader>f :BufferCloseAllButVisible<Enter>
 " Look for merge conflicts
 map <leader>m /=======\\|<<<<<<< .*\\|>>>>>>> .*<CR>
 " Enable/Disable Copilot
@@ -192,6 +196,7 @@ command ThemePalenight           execute ':colorscheme palenight | :set backgrou
 command ThemePaperColor          execute ':colorscheme PaperColor | :set background=dark'
 command ThemePaperColorLight     execute ':colorscheme PaperColor | :set background=light'
 command ThemeKanagawa            execute ':colorscheme kanagawa'
+command ThemeEverforest          execute ':colorscheme everforest | :set background=dark'
 
 " === Syntax | Theme ===
 syntax enable
@@ -253,7 +258,9 @@ set t_Co=256
 " colorscheme catppuccin
 " colorscheme nightfly
 " colorscheme catppuccin-mocha
-colorscheme kanagawa
+" colorscheme everforest
+ colorscheme kanagawa
+
 
 " === THE ABYSS ===
 " Large stuff that I don't want to see

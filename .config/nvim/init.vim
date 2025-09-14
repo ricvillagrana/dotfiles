@@ -1,1 +1,0 @@
-/Users/ricardovillagrana/dotfiles/.vimrc
