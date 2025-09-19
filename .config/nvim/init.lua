@@ -65,6 +65,21 @@ require("lazy").setup({
   "ntpeters/vim-better-whitespace",
   "nvim-lualine/lualine.nvim",
   "nvim-tree/nvim-tree.lua",
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
+  },
 
   -- Functionality
   "Yggdroot/indentLine",
@@ -166,7 +181,7 @@ map("v", "<C-j>", ":m '>+1<CR>gv=gv")
 
 map("n", "<leader>bp", [[/binding.*\|debugger\|byebug\|console\..*\|dd(.*)\|var_dump(.*)\|var_dump<CR>]])
 map("n", "<leader>e", function() vim.lsp.buf.format() end)
-map("n", "<leader>r", "<cmd>source ~/.config/nvim/init.lua<CR>")
+map("n", "<leader>r", "<cmd>luafile ~/.config/nvim/init.lua<CR>")
 
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
@@ -181,6 +196,7 @@ map("n", "<C-x>", "<cmd>BufferClose<CR>")
 map("n", "<leader>t", "<cmd>NvimTreeToggle<CR>")
 map("n", "<leader>s", "<cmd>NvimTreeFindFile<CR>")
 map("n", "<leader>f", "<cmd>BufferCloseAllButVisible<CR>")
+map("n", "<leader>l", "<cmd>Lazy<CR>")
 map("n", "<leader>m", [[/=======\|<<<<<<< .*\|>>>>>>> .*<CR>]])
 map("n", "<leader>1", "<cmd>Copilot enable<CR> | <cmd>Copilot status<CR>")
 map("n", "<leader>0", "<cmd>Copilot disable<CR> | <cmd>Copilot status<CR>")
