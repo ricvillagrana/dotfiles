@@ -84,8 +84,8 @@ require("lazy").setup({
   -- Functionality
   "Yggdroot/indentLine",
   "jiangmiao/auto-pairs",
-  "ludovicchabant/vim-gutentags",
-  "mattn/emmet-vim",
+  --"ludovicchabant/vim-gutentags",
+  "ricvillagrana/emmet-vim",
   "nvim-lua/plenary.nvim",
   { "junegunn/fzf", build = function() vim.fn["fzf#install"]() end },
   "junegunn/fzf.vim",
